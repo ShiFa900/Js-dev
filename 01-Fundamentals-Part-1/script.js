@@ -105,7 +105,7 @@ n = n - 1; // sedangkan disini, 10 akan dikurangi dengan 1, maka 10
 // const fav = prompt("What is favorite number?"); // prompt disini untuk menampilkan form input popup di browser
 // if(fav == 23) console.log("what an amazing number"); // dengan == (loose) maka ini akan berhasil, karena value dari fav (tipenya string) akan di coersion menjadi int
 // namun bila menggunakan === (strict), tidak akan berhasil
-//c onst fav = Number(prompt("What is favorite number?")); // conversi input dari browser menjadi number
+// const fav = Number(prompt("What is favorite number?")); // conversi input dari browser menjadi number
 // if(fav === 23) console.log("what an amazing number") // maka ini akan berhasil, 23 === 23
 
 

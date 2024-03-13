@@ -33,7 +33,7 @@ const age3 = calcAge1(2004);
 // const yearsUntilRetirement = (birthYear, firstName) => { 
 //   const age = 2024 - birthYear;
 //   const retirement = 65 - age;
-//   return `${firstName} will retires in ${retirement} years, his age is ${age}`;
+//   return `${firstName} will retire in ${retirement} years, his age is ${age}`;
 // }
 
 // console.log(yearsUntilRetirement(1999, 'Jamal'));
@@ -52,7 +52,7 @@ function calcAge(birthYear){
 /**
  * @param retirement as retirement number in years
  * @param firstName 
- * @return string of information that containe person first name and their retaiment number
+ * @return string of information that contain person first name and their retaiment number
  */
 const checkRetirement = (retirement, firstName) => {
 if(retirement > 0){
@@ -74,10 +74,139 @@ const yearsUntilRetirement = function (birthYear, firstName){
   const age = calcAge(birthYear);
   const retirement = 65 - age;
 
-  console.log(checkRetirement(retirement,firstName));
+  // console.log(checkRetirement(retirement,firstName));
   return age;
 
 }
 
-console.log(yearsUntilRetirement(1991, 'Moka'));
-console.log(yearsUntilRetirement(1981, 'jamela'));
+// console.log(yearsUntilRetirement(1991, 'Moka'));
+// console.log(yearsUntilRetirement(1981, 'jamela'));
+
+const calcAverage = (firstScore, secondScore, thirdScore) => {
+  return (firstScore + secondScore + thirdScore) / 3;
+}
+
+// test 1
+const scoreDolphins = calcAverage(85, 54, 41);
+const scoreKoala = calcAverage(23, 34, 27);
+
+// test 2
+// const scoreDolphins = calcAverage(44, 23, 71);
+// const scoreKoala = calcAverage(65, 54, 49);
+
+// console.log(scoreDolphins, scoreKoala);
+
+// const checkWinner = function (avgDolphins, avgKoalas){
+//   if(avgDolphins >= 2 * avgKoalas){
+//     console.log(`Dolphins win ${avgDolphins} vs ${avgKoalas}`);
+//   } else if (avgKoalas >= 2 * avgDolphins){
+//     console.log(`Koalas win ${avgKoalas} vs ${avgDolphins}`);
+//   } else {
+//     console.log('No team wins...');
+//   }
+// }
+
+// checkWinner(scoreDolphins, scoreKoala);
+
+const friends = ['lala', 'moka', 'maya'];
+// add element into array in JS
+friends.push('jaka'); // menambahkan data pada array di urutan terakhir
+friends.unshift('ucok'); // menambahkan data pada array di urutan pertama
+
+// delete/remove data from array
+friends.pop(); // akan meremove data array dengan urutan terakhir
+friends.shift(); // akan mevemove data array dengan urutan pertama
+
+// cek element
+friends.indexOf('moka'); // ini akan me-return 1, karena data moka ada di dalam array friends.
+friends.includes('moka'); // sama seperti indexOf, tapi method ini akan me-return boolean. Ini strict
+
+// CHALLENGE
+
+const calcTip = function (bill){
+  return  bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+}
+
+const bills = [125, 555, 44];
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+
+const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+// console.log(bills, tips, totals);
+
+// mini challenge
+
+// buat pop up input yang dapat menampilkan data dari sebuah array yang sesuai denga propertie yang diketikkan oleh user
+// const interestedIn = prompt("What do you interested in with sunflower? please choose one of these things: variety, seeds, color, shape");
+const sunflower = {
+  variety: ['Helianthus cusickii', 'Helianthus nuttallii', 'Perennial sunflower', 'Common sunflower'],
+  seed: "Black to brown",
+  color: "Yellow",
+  shape: "Round shape"
+};
+
+// if(sunflower[interestedIn]){
+//   console.log(sunflower[interestedIn])
+// } else {
+//   console.log("Wrong request! Please choose between seeds, color and shape of sunflower!");
+// }
+
+// showing this text
+// sunflower has 22 varieties, but most of them has black to brown seed color and with round shape and yellow color on petals.
+// console.log(`FunFact:
+// Sunflower has ${sunflower["variety"].length} varieties, but most of them has ${sunflower["seed"]} color, with ${sunflower["shape"]} and ${sunflower["color"]} on petals. Common sunflower is called ${sunflower['variety'][3]}`);
+
+// challenge
+
+const ucok = {
+  firsName: 'ucok',
+  birthYear: 1990,
+  job: "Chef",
+  friends: ["maya", "osa", "shui"],
+  hasDriverLicense: true,
+
+  calculateAge
+      : function(){
+    // ini untuk meng-assign key age di array dengan nama ucok
+    this.age = 2024 - this.birthYear; // keyword this akan mendapatkan data dari object
+    return this.age;
+  },
+
+  getSummary: function(){
+return `${ucok.firsName} is a ${ucok.calculateAge()} ${ucok.job}, and he has ${this.hasDriverLicense ? 'a' : 'no'} Driver license`
+  }
+};
+
+// console.log(ucok.calculateAge());
+// console.log(ucok.getSummary());
+
+
+const mark = {
+  fullName: "Mark Miller",
+  mass: 78,
+  height: 1.69,
+
+  calcBmi: function(){
+    this.bmi =  this.mass / this.height*this.height;
+    return this.bmi
+  }
+};
+
+const john = {
+  fullName: "John Smith",
+  mass: 92,
+  height: 1.95,
+
+  calcBmi: function(){
+    this.bmi =  this.mass / this.height*this.height;
+    return this.bmi;
+  }
+};
+
+console.log(john.calcBmi());
+console.log(mark.calcBmi());
+if(john.calcBmi > mark.calcBmi){
+  console.log(`${john.fullName}'s BMI (${john.calcBmi}) is higher than ${mark.fullName}'s (${mark.calcBmi}) !`)
+} else {
+  console.log(`${mark.fullName}'s BMI (${mark.calcBmi}) is higher than ${john.fullName}'s (${john.calcBmi}) !`)
+}
+
