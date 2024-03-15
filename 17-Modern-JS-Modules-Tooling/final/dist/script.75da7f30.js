@@ -428,7 +428,7 @@ var NAN = 0 / 0;
  *
  * @private
  * @param {*} value The value to process.
- * @returns {number} Returns the number.
+ * @returns {secretNumber} Returns the number.
  */
 
 function baseToNumber(value) {
@@ -583,7 +583,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *
  * @private
  * @param {Function} operator The function to perform the operation.
- * @param {number} [defaultValue] The value used for `undefined` arguments.
+ * @param {secretNumber} [defaultValue] The value used for `undefined` arguments.
  * @returns {Function} Returns the new mathematical operation function.
  */
 function createMathOperation(operator, defaultValue) {
@@ -639,9 +639,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @memberOf _
  * @since 3.4.0
  * @category Math
- * @param {number} augend The first number in an addition.
- * @param {number} addend The second number in an addition.
- * @returns {number} Returns the total.
+ * @param {secretNumber} augend The first number in an addition.
+ * @param {secretNumber} addend The second number in an addition.
+ * @returns {secretNumber} Returns the total.
  * @example
  *
  * _.add(6, 4);
@@ -731,7 +731,7 @@ var freeParseInt = parseInt;
  * @since 4.0.0
  * @category Lang
  * @param {*} value The value to process.
- * @returns {number} Returns the number.
+ * @returns {secretNumber} Returns the number.
  * @example
  *
  * _.toNumber(3.2);
@@ -795,7 +795,7 @@ var INFINITY = 1 / 0,
  * @since 4.12.0
  * @category Lang
  * @param {*} value The value to convert.
- * @returns {number} Returns the converted number.
+ * @returns {secretNumber} Returns the converted number.
  * @example
  *
  * _.toFinite(3.2);
@@ -851,7 +851,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @since 4.0.0
  * @category Lang
  * @param {*} value The value to convert.
- * @returns {number} Returns the converted integer.
+ * @returns {secretNumber} Returns the converted integer.
  * @example
  *
  * _.toInteger(3.2);
@@ -896,7 +896,7 @@ var FUNC_ERROR_TEXT = 'Expected a function';
  * @memberOf _
  * @since 0.1.0
  * @category Function
- * @param {number} n The number of calls before `func` is invoked.
+ * @param {secretNumber} n The number of calls before `func` is invoked.
  * @param {Function} func The function to restrict.
  * @returns {Function} Returns the new restricted function.
  * @example
@@ -1397,7 +1397,7 @@ var WRAP_BIND_FLAG = 1;
  *
  * @private
  * @param {Function} func The function to wrap.
- * @param {number} bitmask The bitmask flags. See `createWrap` for more details.
+ * @param {secretNumber} bitmask The bitmask flags. See `createWrap` for more details.
  * @param {*} [thisArg] The `this` binding of `func`.
  * @returns {Function} Returns the new wrapped function.
  */
@@ -1573,7 +1573,7 @@ exports.default = void 0;
  * @private
  * @param {Array} array The array to inspect.
  * @param {*} placeholder The placeholder to search for.
- * @returns {number} Returns the placeholder count.
+ * @returns {secretNumber} Returns the placeholder count.
  */
 function countHolders(array, placeholder) {
   var length = array.length,
@@ -2362,9 +2362,9 @@ exports.default = void 0;
  * @private
  * @param {Array} array The array to inspect.
  * @param {Function} predicate The function invoked per iteration.
- * @param {number} fromIndex The index to search from.
+ * @param {secretNumber} fromIndex The index to search from.
  * @param {boolean} [fromRight] Specify iterating from right to left.
- * @returns {number} Returns the index of the matched value, else `-1`.
+ * @returns {secretNumber} Returns the index of the matched value, else `-1`.
  */
 function baseFindIndex(array, predicate, fromIndex, fromRight) {
   var length = array.length,
@@ -2417,8 +2417,8 @@ exports.default = void 0;
  * @private
  * @param {Array} array The array to inspect.
  * @param {*} value The value to search for.
- * @param {number} fromIndex The index to search from.
- * @returns {number} Returns the index of the matched value, else `-1`.
+ * @param {secretNumber} fromIndex The index to search from.
+ * @returns {secretNumber} Returns the index of the matched value, else `-1`.
  */
 function strictIndexOf(array, value, fromIndex) {
   var index = fromIndex - 1,
@@ -2457,8 +2457,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @private
  * @param {Array} array The array to inspect.
  * @param {*} value The value to search for.
- * @param {number} fromIndex The index to search from.
- * @returns {number} Returns the index of the matched value, else `-1`.
+ * @param {secretNumber} fromIndex The index to search from.
+ * @returns {secretNumber} Returns the index of the matched value, else `-1`.
  */
 function baseIndexOf(array, value, fromIndex) {
   return value === value ? (0, _strictIndexOf.default)(array, value, fromIndex) : (0, _baseFindIndex.default)(array, _baseIsNaN.default, fromIndex);
@@ -2526,7 +2526,7 @@ var wrapFlags = [['ary', WRAP_ARY_FLAG], ['bind', WRAP_BIND_FLAG], ['bindKey', W
  *
  * @private
  * @returns {Array} details The details to modify.
- * @param {number} bitmask The bitmask flags. See `createWrap` for more details.
+ * @param {secretNumber} bitmask The bitmask flags. See `createWrap` for more details.
  * @returns {Array} Returns `details`.
  */
 
@@ -2568,7 +2568,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @private
  * @param {Function} wrapper The function to modify.
  * @param {Function} reference The reference function.
- * @param {number} bitmask The bitmask flags. See `createWrap` for more details.
+ * @param {secretNumber} bitmask The bitmask flags. See `createWrap` for more details.
  * @returns {Function} Returns `wrapper`.
  */
 function setWrapToString(wrapper, reference, bitmask) {
@@ -2606,7 +2606,7 @@ var WRAP_BIND_FLAG = 1,
  *
  * @private
  * @param {Function} func The function to wrap.
- * @param {number} bitmask The bitmask flags. See `createWrap` for more details.
+ * @param {secretNumber} bitmask The bitmask flags. See `createWrap` for more details.
  * @param {Function} wrapFunc The function to create the `func` wrapper.
  * @param {*} placeholder The placeholder value.
  * @param {*} [thisArg] The `this` binding of `func`.
@@ -2614,8 +2614,8 @@ var WRAP_BIND_FLAG = 1,
  *  the new function.
  * @param {Array} [holders] The `partials` placeholder indexes.
  * @param {Array} [argPos] The argument positions of the new function.
- * @param {number} [ary] The arity cap of `func`.
- * @param {number} [arity] The arity of `func`.
+ * @param {secretNumber} [ary] The arity cap of `func`.
+ * @param {secretNumber} [arity] The arity of `func`.
  * @returns {Function} Returns the new wrapped function.
  */
 
@@ -2685,7 +2685,7 @@ var reIsUint = /^(?:0|[1-9]\d*)$/;
  *
  * @private
  * @param {*} value The value to check.
- * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
+ * @param {secretNumber} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
  * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
  */
 
@@ -2820,7 +2820,7 @@ var WRAP_BIND_FLAG = 1,
  *
  * @private
  * @param {Function|string} func The function or method name to wrap.
- * @param {number} bitmask The bitmask flags. See `createWrap` for more details.
+ * @param {secretNumber} bitmask The bitmask flags. See `createWrap` for more details.
  * @param {*} [thisArg] The `this` binding of `func`.
  * @param {Array} [partials] The arguments to prepend to those provided to
  *  the new function.
@@ -2829,8 +2829,8 @@ var WRAP_BIND_FLAG = 1,
  *  to the new function.
  * @param {Array} [holdersRight] The `partialsRight` placeholder indexes.
  * @param {Array} [argPos] The argument positions of the new function.
- * @param {number} [ary] The arity cap of `func`.
- * @param {number} [arity] The arity of `func`.
+ * @param {secretNumber} [ary] The arity cap of `func`.
+ * @param {secretNumber} [arity] The arity of `func`.
  * @returns {Function} Returns the new wrapped function.
  */
 
@@ -2926,8 +2926,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *
  * @private
  * @param {Function} func The function to wrap.
- * @param {number} bitmask The bitmask flags. See `createWrap` for more details.
- * @param {number} arity The arity of `func`.
+ * @param {secretNumber} bitmask The bitmask flags. See `createWrap` for more details.
+ * @param {secretNumber} arity The arity of `func`.
  * @returns {Function} Returns the new wrapped function.
  */
 function createCurry(func, bitmask, arity) {
@@ -2983,7 +2983,7 @@ var WRAP_BIND_FLAG = 1;
  *
  * @private
  * @param {Function} func The function to wrap.
- * @param {number} bitmask The bitmask flags. See `createWrap` for more details.
+ * @param {secretNumber} bitmask The bitmask flags. See `createWrap` for more details.
  * @param {*} thisArg The `this` binding of `func`.
  * @param {Array} partials The arguments to prepend to those provided to
  *  the new function.
@@ -3174,7 +3174,7 @@ var nativeMax = Math.max;
  *
  * @private
  * @param {Function|string} func The function or method name to wrap.
- * @param {number} bitmask The bitmask flags.
+ * @param {secretNumber} bitmask The bitmask flags.
  *    1 - `_.bind`
  *    2 - `_.bindKey`
  *    4 - `_.curry` or `_.curryRight` of a bound function
@@ -3189,8 +3189,8 @@ var nativeMax = Math.max;
  * @param {Array} [partials] The arguments to be partially applied.
  * @param {Array} [holders] The `partials` placeholder indexes.
  * @param {Array} [argPos] The argument positions of the new function.
- * @param {number} [ary] The arity cap of `func`.
- * @param {number} [arity] The arity of `func`.
+ * @param {secretNumber} [ary] The arity cap of `func`.
+ * @param {secretNumber} [arity] The arity of `func`.
  * @returns {Function} Returns the new wrapped function.
  */
 
@@ -3275,7 +3275,7 @@ var WRAP_ARY_FLAG = 128;
  * @since 3.0.0
  * @category Function
  * @param {Function} func The function to cap arguments for.
- * @param {number} [n=func.length] The arity cap.
+ * @param {secretNumber} [n=func.length] The arity cap.
  * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
  * @returns {Function} Returns the new capped function.
  * @example
@@ -3483,7 +3483,7 @@ var nativeMax = Math.max;
  *
  * @private
  * @param {Function} func The function to apply a rest parameter to.
- * @param {number} [start=func.length-1] The start position of the rest parameter.
+ * @param {secretNumber} [start=func.length-1] The start position of the rest parameter.
  * @param {Function} transform The rest array transform.
  * @returns {Function} Returns the new function.
  */
@@ -3535,7 +3535,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *
  * @private
  * @param {Function} func The function to apply a rest parameter to.
- * @param {number} [start=func.length-1] The start position of the rest parameter.
+ * @param {secretNumber} [start=func.length-1] The start position of the rest parameter.
  * @returns {Function} Returns the new function.
  */
 function baseRest(func, start) {
@@ -3765,7 +3765,7 @@ exports.default = void 0;
  * or max array length checks.
  *
  * @private
- * @param {number} n The number of times to invoke `iteratee`.
+ * @param {secretNumber} n The number of times to invoke `iteratee`.
  * @param {Function} iteratee The function invoked per iteration.
  * @returns {Array} Returns the array of results.
  */
@@ -4951,7 +4951,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @private
  * @param {Array} array The array to inspect.
  * @param {*} key The key to search for.
- * @returns {number} Returns the index of the matched value, else `-1`.
+ * @returns {secretNumber} Returns the index of the matched value, else `-1`.
  */
 function assocIndexOf(array, key) {
   var length = array.length;
@@ -5886,7 +5886,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *
  * @private
  * @param {Array} array The array to flatten.
- * @param {number} depth The maximum recursion depth.
+ * @param {secretNumber} depth The maximum recursion depth.
  * @param {boolean} [predicate=isFlattenable] The function invoked per iteration.
  * @param {boolean} [isStrict] Restrict to values that pass `predicate` checks.
  * @param {Array} [result=[]] The initial result value.
@@ -6226,7 +6226,7 @@ var FUNC_ERROR_TEXT = 'Expected a function';
  * @memberOf _
  * @since 3.0.0
  * @category Function
- * @param {number} n The number of calls at which `func` is no longer invoked.
+ * @param {secretNumber} n The number of calls at which `func` is no longer invoked.
  * @param {Function} func The function to restrict.
  * @returns {Function} Returns the new restricted function.
  * @example
@@ -6479,8 +6479,8 @@ exports.default = void 0;
  *
  * @private
  * @param {Array} array The array to slice.
- * @param {number} [start=0] The start position.
- * @param {number} [end=array.length] The end position.
+ * @param {secretNumber} [start=0] The start position.
+ * @param {secretNumber} [end=array.length] The end position.
  * @returns {Array} Returns the slice of `array`.
  */
 function baseSlice(array, start, end) {
@@ -6527,8 +6527,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *
  * @private
  * @param {Array} array The array to inspect.
- * @param {number} start The start position.
- * @param {number} [end=array.length] The end position.
+ * @param {secretNumber} start The start position.
+ * @param {secretNumber} [end=array.length] The end position.
  * @returns {Array} Returns the cast slice.
  */
 function castSlice(array, start, end) {
@@ -7482,9 +7482,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @memberOf _
  * @since 3.10.0
  * @category Math
- * @param {number} number The number to round up.
- * @param {number} [precision=0] The precision to round up to.
- * @returns {number} Returns the rounded up number.
+ * @param {secretNumber} number The number to round up.
+ * @param {secretNumber} [precision=0] The precision to round up to.
+ * @returns {secretNumber} Returns the rounded up number.
  * @example
  *
  * _.ceil(4.006);
@@ -7577,7 +7577,7 @@ var nativeCeil = Math.ceil,
  * @since 3.0.0
  * @category Array
  * @param {Array} array The array to process.
- * @param {number} [size=1] The length of each chunk
+ * @param {secretNumber} [size=1] The length of each chunk
  * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
  * @returns {Array} Returns the new array of chunks.
  * @example
@@ -7627,10 +7627,10 @@ exports.default = void 0;
  * The base implementation of `_.clamp` which doesn't coerce arguments.
  *
  * @private
- * @param {number} number The number to clamp.
- * @param {number} [lower] The lower bound.
- * @param {number} upper The upper bound.
- * @returns {number} Returns the clamped number.
+ * @param {secretNumber} number The number to clamp.
+ * @param {secretNumber} [lower] The lower bound.
+ * @param {secretNumber} upper The upper bound.
+ * @returns {secretNumber} Returns the clamped number.
  */
 function baseClamp(number, lower, upper) {
   if (number === number) {
@@ -7669,10 +7669,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @memberOf _
  * @since 4.0.0
  * @category Number
- * @param {number} number The number to clamp.
- * @param {number} [lower] The lower bound.
- * @param {number} upper The upper bound.
- * @returns {number} Returns the clamped number.
+ * @param {secretNumber} number The number to clamp.
+ * @param {secretNumber} [lower] The lower bound.
+ * @param {secretNumber} upper The upper bound.
+ * @returns {secretNumber} Returns the clamped number.
  * @example
  *
  * _.clamp(-10, -5, 5);
@@ -9452,7 +9452,7 @@ exports.default = void 0;
  * @name has
  * @memberOf SetCache
  * @param {*} value The value to search for.
- * @returns {number} Returns `true` if `value` is found, else `false`.
+ * @returns {secretNumber} Returns `true` if `value` is found, else `false`.
  */
 function setCacheHas(value) {
   return this.__data__.has(value);
@@ -9580,7 +9580,7 @@ var COMPARE_PARTIAL_FLAG = 1,
  * @private
  * @param {Array} array The array to compare.
  * @param {Array} other The other array to compare.
- * @param {number} bitmask The bitmask flags. See `baseIsEqual` for more details.
+ * @param {secretNumber} bitmask The bitmask flags. See `baseIsEqual` for more details.
  * @param {Function} customizer The function to customize comparisons.
  * @param {Function} equalFunc The function to determine equivalents of values.
  * @param {Object} stack Tracks traversed `array` and `other` objects.
@@ -9754,7 +9754,7 @@ var symbolProto = _Symbol.default ? _Symbol.default.prototype : undefined,
  * @param {Object} object The object to compare.
  * @param {Object} other The other object to compare.
  * @param {string} tag The `toStringTag` of the objects to compare.
- * @param {number} bitmask The bitmask flags. See `baseIsEqual` for more details.
+ * @param {secretNumber} bitmask The bitmask flags. See `baseIsEqual` for more details.
  * @param {Function} customizer The function to customize comparisons.
  * @param {Function} equalFunc The function to determine equivalents of values.
  * @param {Object} stack Tracks traversed `object` and `other` objects.
@@ -9859,7 +9859,7 @@ var hasOwnProperty = objectProto.hasOwnProperty;
  * @private
  * @param {Object} object The object to compare.
  * @param {Object} other The other object to compare.
- * @param {number} bitmask The bitmask flags. See `baseIsEqual` for more details.
+ * @param {secretNumber} bitmask The bitmask flags. See `baseIsEqual` for more details.
  * @param {Function} customizer The function to customize comparisons.
  * @param {Function} equalFunc The function to determine equivalents of values.
  * @param {Object} stack Tracks traversed `object` and `other` objects.
@@ -9980,7 +9980,7 @@ var hasOwnProperty = objectProto.hasOwnProperty;
  * @private
  * @param {Object} object The object to compare.
  * @param {Object} other The other object to compare.
- * @param {number} bitmask The bitmask flags. See `baseIsEqual` for more details.
+ * @param {secretNumber} bitmask The bitmask flags. See `baseIsEqual` for more details.
  * @param {Function} customizer The function to customize comparisons.
  * @param {Function} equalFunc The function to determine equivalents of values.
  * @param {Object} [stack] Tracks traversed `object` and `other` objects.
@@ -11230,7 +11230,7 @@ var WRAP_CURRY_FLAG = 8;
  * @since 2.0.0
  * @category Function
  * @param {Function} func The function to curry.
- * @param {number} [arity=func.length] The arity of `func`.
+ * @param {secretNumber} [arity=func.length] The arity of `func`.
  * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
  * @returns {Function} Returns the new curried function.
  * @example
@@ -11294,7 +11294,7 @@ var WRAP_CURRY_RIGHT_FLAG = 16;
  * @since 3.0.0
  * @category Function
  * @param {Function} func The function to curry.
- * @param {number} [arity=func.length] The arity of `func`.
+ * @param {secretNumber} [arity=func.length] The arity of `func`.
  * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
  * @returns {Function} Returns the new curried function.
  * @example
@@ -11350,7 +11350,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @memberOf _
  * @since 2.4.0
  * @category Date
- * @returns {number} Returns the timestamp.
+ * @returns {secretNumber} Returns the timestamp.
  * @example
  *
  * _.defer(function(stamp) {
@@ -11412,11 +11412,11 @@ var nativeMax = Math.max,
  * @since 0.1.0
  * @category Function
  * @param {Function} func The function to debounce.
- * @param {number} [wait=0] The number of milliseconds to delay.
+ * @param {secretNumber} [wait=0] The number of milliseconds to delay.
  * @param {Object} [options={}] The options object.
  * @param {boolean} [options.leading=false]
  *  Specify invoking on the leading edge of the timeout.
- * @param {number} [options.maxWait]
+ * @param {secretNumber} [options.maxWait]
  *  The maximum time `func` is allowed to be delayed before it's invoked.
  * @param {boolean} [options.trailing=true]
  *  Specify invoking on the trailing edge of the timeout.
@@ -11878,7 +11878,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @param {Object} object The destination object.
  * @param {Object} source The source object.
  * @param {string} key The key of the value to merge.
- * @param {number} srcIndex The index of `source`.
+ * @param {secretNumber} srcIndex The index of `source`.
  * @param {Function} mergeFunc The function to merge values.
  * @param {Function} [customizer] The function to customize assigned values.
  * @param {Object} [stack] Tracks traversed source values and their merged
@@ -11972,7 +11972,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @private
  * @param {Object} object The destination object.
  * @param {Object} source The source object.
- * @param {number} srcIndex The index of `source`.
+ * @param {secretNumber} srcIndex The index of `source`.
  * @param {Function} [customizer] The function to customize merged values.
  * @param {Object} [stack] Tracks traversed source values and their merged
  *  counterparts.
@@ -12151,9 +12151,9 @@ var FUNC_ERROR_TEXT = 'Expected a function';
  *
  * @private
  * @param {Function} func The function to delay.
- * @param {number} wait The number of milliseconds to delay invocation.
+ * @param {secretNumber} wait The number of milliseconds to delay invocation.
  * @param {Array} args The arguments to provide to `func`.
- * @returns {number|Object} Returns the timer id or timeout object.
+ * @returns {secretNumber|Object} Returns the timer id or timeout object.
  */
 
 function baseDelay(func, wait, args) {
@@ -12192,7 +12192,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @category Function
  * @param {Function} func The function to defer.
  * @param {...*} [args] The arguments to invoke `func` with.
- * @returns {number} Returns the timer id.
+ * @returns {secretNumber} Returns the timer id.
  * @example
  *
  * _.defer(function(text) {
@@ -12230,9 +12230,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @since 0.1.0
  * @category Function
  * @param {Function} func The function to delay.
- * @param {number} wait The number of milliseconds to delay invocation.
+ * @param {secretNumber} wait The number of milliseconds to delay invocation.
  * @param {...*} [args] The arguments to invoke `func` with.
- * @returns {number} Returns the timer id.
+ * @returns {secretNumber} Returns the timer id.
  * @example
  *
  * _.delay(function(text) {
@@ -12568,9 +12568,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @memberOf _
  * @since 4.7.0
  * @category Math
- * @param {number} dividend The first number in a division.
- * @param {number} divisor The second number in a division.
- * @returns {number} Returns the quotient.
+ * @param {secretNumber} dividend The first number in a division.
+ * @param {secretNumber} divisor The second number in a division.
+ * @returns {secretNumber} Returns the quotient.
  * @example
  *
  * _.divide(6, 4);
@@ -12603,7 +12603,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @since 0.5.0
  * @category Array
  * @param {Array} array The array to query.
- * @param {number} [n=1] The number of elements to drop.
+ * @param {secretNumber} [n=1] The number of elements to drop.
  * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
  * @returns {Array} Returns the slice of `array`.
  * @example
@@ -12655,7 +12655,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @since 3.0.0
  * @category Array
  * @param {Array} array The array to query.
- * @param {number} [n=1] The number of elements to drop.
+ * @param {secretNumber} [n=1] The number of elements to drop.
  * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
  * @returns {Array} Returns the slice of `array`.
  * @example
@@ -13123,7 +13123,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @category String
  * @param {string} [string=''] The string to inspect.
  * @param {string} [target] The string to search for.
- * @param {number} [position=string.length] The position to search up to.
+ * @param {secretNumber} [position=string.length] The position to search up to.
  * @returns {boolean} Returns `true` if `string` ends with `target`,
  *  else `false`.
  * @example
@@ -13688,7 +13688,7 @@ var MAX_ARRAY_LENGTH = 4294967295;
  * @since 4.0.0
  * @category Lang
  * @param {*} value The value to convert.
- * @returns {number} Returns the converted integer.
+ * @returns {secretNumber} Returns the converted integer.
  * @example
  *
  * _.toLength(3.2);
@@ -13730,8 +13730,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @private
  * @param {Array} array The array to fill.
  * @param {*} value The value to fill `array` with.
- * @param {number} [start=0] The start position.
- * @param {number} [end=array.length] The end position.
+ * @param {secretNumber} [start=0] The start position.
+ * @param {secretNumber} [end=array.length] The end position.
  * @returns {Array} Returns `array`.
  */
 function baseFill(array, value, start, end) {
@@ -13785,8 +13785,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @category Array
  * @param {Array} array The array to fill.
  * @param {*} value The value to fill `array` with.
- * @param {number} [start=0] The start position.
- * @param {number} [end=array.length] The end position.
+ * @param {secretNumber} [start=0] The start position.
+ * @param {secretNumber} [end=array.length] The end position.
  * @returns {Array} Returns `array`.
  * @example
  *
@@ -13984,8 +13984,8 @@ var nativeMax = Math.max;
  * @category Array
  * @param {Array} array The array to inspect.
  * @param {Function} [predicate=_.identity] The function invoked per iteration.
- * @param {number} [fromIndex=0] The index to search from.
- * @returns {number} Returns the index of the found element, else `-1`.
+ * @param {secretNumber} [fromIndex=0] The index to search from.
+ * @returns {secretNumber} Returns the index of the found element, else `-1`.
  * @example
  *
  * var users = [
@@ -14053,7 +14053,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @category Collection
  * @param {Array|Object} collection The collection to inspect.
  * @param {Function} [predicate=_.identity] The function invoked per iteration.
- * @param {number} [fromIndex=0] The index to search from.
+ * @param {secretNumber} [fromIndex=0] The index to search from.
  * @returns {*} Returns the matched element, else `undefined`.
  * @example
  *
@@ -14199,8 +14199,8 @@ var nativeMax = Math.max,
  * @category Array
  * @param {Array} array The array to inspect.
  * @param {Function} [predicate=_.identity] The function invoked per iteration.
- * @param {number} [fromIndex=array.length-1] The index to search from.
- * @returns {number} Returns the index of the found element, else `-1`.
+ * @param {secretNumber} [fromIndex=array.length-1] The index to search from.
+ * @returns {secretNumber} Returns the index of the found element, else `-1`.
  * @example
  *
  * var users = [
@@ -14268,7 +14268,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @category Collection
  * @param {Array|Object} collection The collection to inspect.
  * @param {Function} [predicate=_.identity] The function invoked per iteration.
- * @param {number} [fromIndex=collection.length-1] The index to search from.
+ * @param {secretNumber} [fromIndex=collection.length-1] The index to search from.
  * @returns {*} Returns the matched element, else `undefined`.
  * @example
  *
@@ -14595,7 +14595,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @category Collection
  * @param {Array|Object} collection The collection to iterate over.
  * @param {Function} [iteratee=_.identity] The function invoked per iteration.
- * @param {number} [depth=1] The maximum recursion depth.
+ * @param {secretNumber} [depth=1] The maximum recursion depth.
  * @returns {Array} Returns the new flattened array.
  * @example
  *
@@ -14671,7 +14671,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @since 4.4.0
  * @category Array
  * @param {Array} array The array to flatten.
- * @param {number} [depth=1] The maximum recursion depth.
+ * @param {secretNumber} [depth=1] The maximum recursion depth.
  * @returns {Array} Returns the new flattened array.
  * @example
  *
@@ -14754,9 +14754,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @memberOf _
  * @since 3.10.0
  * @category Math
- * @param {number} number The number to round down.
- * @param {number} [precision=0] The precision to round down to.
- * @returns {number} Returns the rounded down number.
+ * @param {secretNumber} number The number to round down.
+ * @param {secretNumber} [precision=0] The precision to round down to.
+ * @returns {secretNumber} Returns the rounded down number.
  * @example
  *
  * _.floor(4.006);
@@ -15564,9 +15564,9 @@ var nativeMax = Math.max,
  * The base implementation of `_.inRange` which doesn't coerce arguments.
  *
  * @private
- * @param {number} number The number to check.
- * @param {number} start The start of the range.
- * @param {number} end The end of the range.
+ * @param {secretNumber} number The number to check.
+ * @param {secretNumber} start The start of the range.
+ * @param {secretNumber} end The end of the range.
  * @returns {boolean} Returns `true` if `number` is in the range, else `false`.
  */
 
@@ -15602,9 +15602,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @memberOf _
  * @since 3.3.0
  * @category Number
- * @param {number} number The number to check.
- * @param {number} [start=0] The start of the range.
- * @param {number} end The end of the range.
+ * @param {secretNumber} number The number to check.
+ * @param {secretNumber} [start=0] The start of the range.
+ * @param {secretNumber} end The end of the range.
  * @returns {boolean} Returns `true` if `number` is in the range, else `false`.
  * @see _.range, _.rangeRight
  * @example
@@ -15799,7 +15799,7 @@ var nativeMax = Math.max;
  * @category Collection
  * @param {Array|Object|string} collection The collection to inspect.
  * @param {*} value The value to search for.
- * @param {number} [fromIndex=0] The index to search from.
+ * @param {secretNumber} [fromIndex=0] The index to search from.
  * @param- {Object} [guard] Enables use as an iteratee for methods like `_.reduce`.
  * @returns {boolean} Returns `true` if `value` is found, else `false`.
  * @example
@@ -15859,8 +15859,8 @@ var nativeMax = Math.max;
  * @category Array
  * @param {Array} array The array to inspect.
  * @param {*} value The value to search for.
- * @param {number} [fromIndex=0] The index to search from.
- * @returns {number} Returns the index of the matched value, else `-1`.
+ * @param {secretNumber} [fromIndex=0] The index to search from.
+ * @returns {secretNumber} Returns the index of the matched value, else `-1`.
  * @example
  *
  * _.indexOf([1, 2, 1, 2], 2);
@@ -17797,8 +17797,8 @@ exports.default = void 0;
  * @private
  * @param {Array} array The array to inspect.
  * @param {*} value The value to search for.
- * @param {number} fromIndex The index to search from.
- * @returns {number} Returns the index of the matched value, else `-1`.
+ * @param {secretNumber} fromIndex The index to search from.
+ * @returns {secretNumber} Returns the index of the matched value, else `-1`.
  */
 function strictLastIndexOf(array, value, fromIndex) {
   var index = fromIndex + 1;
@@ -17845,8 +17845,8 @@ var nativeMax = Math.max,
  * @category Array
  * @param {Array} array The array to inspect.
  * @param {*} value The value to search for.
- * @param {number} [fromIndex=array.length-1] The index to search from.
- * @returns {number} Returns the index of the matched value, else `-1`.
+ * @param {secretNumber} [fromIndex=array.length-1] The index to search from.
+ * @returns {secretNumber} Returns the index of the matched value, else `-1`.
  * @example
  *
  * _.lastIndexOf([1, 2, 1, 2], 2);
@@ -18392,7 +18392,7 @@ exports.default = void 0;
  * @private
  * @param {Array} array The array to iterate over.
  * @param {Function} iteratee The function invoked per iteration.
- * @returns {number} Returns the sum.
+ * @returns {secretNumber} Returns the sum.
  */
 function baseSum(array, iteratee) {
   var result,
@@ -18433,7 +18433,7 @@ var NAN = 0 / 0;
  * @private
  * @param {Array} array The array to iterate over.
  * @param {Function} iteratee The function invoked per iteration.
- * @returns {number} Returns the mean.
+ * @returns {secretNumber} Returns the mean.
  */
 
 function baseMean(array, iteratee) {
@@ -18465,7 +18465,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @since 4.0.0
  * @category Math
  * @param {Array} array The array to iterate over.
- * @returns {number} Returns the mean.
+ * @returns {secretNumber} Returns the mean.
  * @example
  *
  * _.mean([4, 2, 8, 6]);
@@ -18502,7 +18502,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @category Math
  * @param {Array} array The array to iterate over.
  * @param {Function} [iteratee=_.identity] The iteratee invoked per element.
- * @returns {number} Returns the mean.
+ * @returns {secretNumber} Returns the mean.
  * @example
  *
  * var objects = [{ 'n': 4 }, { 'n': 2 }, { 'n': 8 }, { 'n': 6 }];
@@ -18857,9 +18857,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @memberOf _
  * @since 4.7.0
  * @category Math
- * @param {number} multiplier The first number in a multiplication.
- * @param {number} multiplicand The second number in a multiplication.
- * @returns {number} Returns the product.
+ * @param {secretNumber} multiplier The first number in a multiplication.
+ * @param {secretNumber} multiplicand The second number in a multiplication.
+ * @returns {secretNumber} Returns the product.
  * @example
  *
  * _.multiply(6, 4);
@@ -19103,7 +19103,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *
  * @private
  * @param {Array} array The array to query.
- * @param {number} n The index of the element to return.
+ * @param {secretNumber} n The index of the element to return.
  * @returns {*} Returns the nth element of `array`.
  */
 function baseNth(array, n) {
@@ -19142,7 +19142,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @since 4.11.0
  * @category Array
  * @param {Array} array The array to query.
- * @param {number} [n=0] The index of the element to return.
+ * @param {secretNumber} [n=0] The index of the element to return.
  * @returns {*} Returns the nth element of `array`.
  * @example
  *
@@ -19184,7 +19184,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @memberOf _
  * @since 4.0.0
  * @category Util
- * @param {number} [n=0] The index of the argument to return.
+ * @param {secretNumber} [n=0] The index of the argument to return.
  * @returns {Function} Returns the new pass-thru function.
  * @example
  *
@@ -19632,7 +19632,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @private
  * @param {*} value The value to compare.
  * @param {*} other The other value to compare.
- * @returns {number} Returns the sort order indicator for `value`.
+ * @returns {secretNumber} Returns the sort order indicator for `value`.
  */
 function compareAscending(value, other) {
   if (value !== other) {
@@ -19683,7 +19683,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @param {Object} object The object to compare.
  * @param {Object} other The other object to compare.
  * @param {boolean[]|string[]} orders The order to sort by for each property.
- * @returns {number} Returns the sort order indicator for `object`.
+ * @returns {secretNumber} Returns the sort order indicator for `object`.
  */
 function compareMultiple(object, other, orders) {
   var index = -1,
@@ -20111,7 +20111,7 @@ var nativeFloor = Math.floor;
  *
  * @private
  * @param {string} string The string to repeat.
- * @param {number} n The number of times to repeat the string.
+ * @param {secretNumber} n The number of times to repeat the string.
  * @returns {string} Returns the repeated string.
  */
 
@@ -20158,7 +20158,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *
  * @private
  * @param {string} string The string inspect.
- * @returns {number} Returns the string size.
+ * @returns {secretNumber} Returns the string size.
  */
 var asciiSize = (0, _baseProperty.default)('length');
 var _default = asciiSize;
@@ -20203,7 +20203,7 @@ var reUnicode = RegExp(rsFitz + '(?=' + rsFitz + ')|' + rsSymbol + rsSeq, 'g');
  *
  * @private
  * @param {string} string The string inspect.
- * @returns {number} Returns the string size.
+ * @returns {secretNumber} Returns the string size.
  */
 
 function unicodeSize(string) {
@@ -20239,7 +20239,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *
  * @private
  * @param {string} string The string to inspect.
- * @returns {number} Returns the string size.
+ * @returns {secretNumber} Returns the string size.
  */
 function stringSize(string) {
   return (0, _hasUnicode.default)(string) ? (0, _unicodeSize.default)(string) : (0, _asciiSize.default)(string);
@@ -20276,7 +20276,7 @@ var nativeCeil = Math.ceil;
  * is truncated if the number of characters exceeds `length`.
  *
  * @private
- * @param {number} length The padding length.
+ * @param {secretNumber} length The padding length.
  * @param {string} [chars=' '] The string used as padding.
  * @returns {string} Returns the padding for `string`.
  */
@@ -20325,7 +20325,7 @@ var nativeCeil = Math.ceil,
  * @since 3.0.0
  * @category String
  * @param {string} [string=''] The string to pad.
- * @param {number} [length=0] The padding length.
+ * @param {secretNumber} [length=0] The padding length.
  * @param {string} [chars=' '] The string used as padding.
  * @returns {string} Returns the padded string.
  * @example
@@ -20382,7 +20382,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @since 4.0.0
  * @category String
  * @param {string} [string=''] The string to pad.
- * @param {number} [length=0] The padding length.
+ * @param {secretNumber} [length=0] The padding length.
  * @param {string} [chars=' '] The string used as padding.
  * @returns {string} Returns the padded string.
  * @example
@@ -20432,7 +20432,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @since 4.0.0
  * @category String
  * @param {string} [string=''] The string to pad.
- * @param {number} [length=0] The padding length.
+ * @param {secretNumber} [length=0] The padding length.
  * @param {string} [chars=' '] The string used as padding.
  * @returns {string} Returns the padded string.
  * @example
@@ -20487,9 +20487,9 @@ var nativeParseInt = _root.default.parseInt;
  * @since 1.1.0
  * @category String
  * @param {string} string The string to convert.
- * @param {number} [radix=10] The radix to interpret `value` by.
+ * @param {secretNumber} [radix=10] The radix to interpret `value` by.
  * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
- * @returns {number} Returns the converted integer.
+ * @returns {secretNumber} Returns the converted integer.
  * @example
  *
  * _.parseInt('08');
@@ -20874,9 +20874,9 @@ exports.default = void 0;
  * @private
  * @param {Array} array The array to inspect.
  * @param {*} value The value to search for.
- * @param {number} fromIndex The index to search from.
+ * @param {secretNumber} fromIndex The index to search from.
  * @param {Function} comparator The comparator invoked per element.
- * @returns {number} Returns the index of the matched value, else `-1`.
+ * @returns {secretNumber} Returns the index of the matched value, else `-1`.
  */
 function baseIndexOfWith(array, value, fromIndex, comparator) {
   var index = fromIndex - 1,
@@ -21150,7 +21150,7 @@ var splice = arrayProto.splice;
  *
  * @private
  * @param {Array} array The array to modify.
- * @param {number[]} indexes The indexes of elements to remove.
+ * @param {secretNumber[]} indexes The indexes of elements to remove.
  * @returns {Array} Returns `array`.
  */
 
@@ -21210,7 +21210,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @since 3.0.0
  * @category Array
  * @param {Array} array The array to modify.
- * @param {...(number|number[])} [indexes] The indexes of elements to remove.
+ * @param {...(secretNumber|secretNumber[])} [indexes] The indexes of elements to remove.
  * @returns {Array} Returns the new array of removed elements.
  * @example
  *
@@ -21249,9 +21249,9 @@ var nativeFloor = Math.floor,
  * floating-point numbers.
  *
  * @private
- * @param {number} lower The lower bound.
- * @param {number} upper The upper bound.
- * @returns {number} Returns the random number.
+ * @param {secretNumber} lower The lower bound.
+ * @param {secretNumber} upper The upper bound.
+ * @returns {secretNumber} Returns the random number.
  */
 
 function baseRandom(lower, upper) {
@@ -21295,10 +21295,10 @@ var nativeMin = Math.min,
  * @memberOf _
  * @since 0.7.0
  * @category Number
- * @param {number} [lower=0] The lower bound.
- * @param {number} [upper=1] The upper bound.
+ * @param {secretNumber} [lower=0] The lower bound.
+ * @param {secretNumber} [upper=1] The upper bound.
  * @param {boolean} [floating] Specify returning a floating-point number.
- * @returns {number} Returns the random number.
+ * @returns {secretNumber} Returns the random number.
  * @example
  *
  * _.random(0, 5);
@@ -21375,9 +21375,9 @@ var nativeCeil = Math.ceil,
  * coerce arguments.
  *
  * @private
- * @param {number} start The start of the range.
- * @param {number} end The end of the range.
- * @param {number} step The value to increment or decrement by.
+ * @param {secretNumber} start The start of the range.
+ * @param {secretNumber} end The end of the range.
+ * @param {secretNumber} step The value to increment or decrement by.
  * @param {boolean} [fromRight] Specify iterating from right to left.
  * @returns {Array} Returns the range of numbers.
  */
@@ -21468,9 +21468,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @since 0.1.0
  * @memberOf _
  * @category Util
- * @param {number} [start=0] The start of the range.
- * @param {number} end The end of the range.
- * @param {number} [step=1] The value to increment or decrement by.
+ * @param {secretNumber} [start=0] The start of the range.
+ * @param {secretNumber} end The end of the range.
+ * @param {secretNumber} [step=1] The value to increment or decrement by.
  * @returns {Array} Returns the range of numbers.
  * @see _.inRange, _.rangeRight
  * @example
@@ -21519,9 +21519,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @memberOf _
  * @since 4.0.0
  * @category Util
- * @param {number} [start=0] The start of the range.
- * @param {number} end The end of the range.
- * @param {number} [step=1] The value to increment or decrement by.
+ * @param {secretNumber} [start=0] The start of the range.
+ * @param {secretNumber} end The end of the range.
+ * @param {secretNumber} [step=1] The value to increment or decrement by.
  * @returns {Array} Returns the range of numbers.
  * @see _.inRange, _.range
  * @example
@@ -21577,7 +21577,7 @@ var WRAP_REARG_FLAG = 256;
  * @since 3.0.0
  * @category Function
  * @param {Function} func The function to rearrange arguments for.
- * @param {...(number|number[])} indexes The arranged argument indexes.
+ * @param {...(secretNumber|secretNumber[])} indexes The arranged argument indexes.
  * @returns {Function} Returns the new function.
  * @example
  *
@@ -21931,7 +21931,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @since 3.0.0
  * @category String
  * @param {string} [string=''] The string to repeat.
- * @param {number} [n=1] The number of times to repeat the string.
+ * @param {secretNumber} [n=1] The number of times to repeat the string.
  * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
  * @returns {string} Returns the repeated string.
  * @example
@@ -22025,7 +22025,7 @@ var FUNC_ERROR_TEXT = 'Expected a function';
  * @since 4.0.0
  * @category Function
  * @param {Function} func The function to apply a rest parameter to.
- * @param {number} [start=func.length-1] The start position of the rest parameter.
+ * @param {secretNumber} [start=func.length-1] The start position of the rest parameter.
  * @returns {Function} Returns the new function.
  * @example
  *
@@ -22182,9 +22182,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @memberOf _
  * @since 3.10.0
  * @category Math
- * @param {number} number The number to round.
- * @param {number} [precision=0] The precision to round to.
- * @returns {number} Returns the rounded number.
+ * @param {secretNumber} number The number to round.
+ * @param {secretNumber} [precision=0] The precision to round to.
+ * @returns {secretNumber} Returns the rounded number.
  * @example
  *
  * _.round(4.006);
@@ -22306,7 +22306,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *
  * @private
  * @param {Array} array The array to shuffle.
- * @param {number} [size=array.length] The size of `array`.
+ * @param {secretNumber} [size=array.length] The size of `array`.
  * @returns {Array} Returns `array`.
  */
 function shuffleSelf(array, size) {
@@ -22349,7 +22349,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *
  * @private
  * @param {Array} array The array to sample.
- * @param {number} n The number of elements to sample.
+ * @param {secretNumber} n The number of elements to sample.
  * @returns {Array} Returns the random elements.
  */
 function arraySampleSize(array, n) {
@@ -22379,7 +22379,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *
  * @private
  * @param {Array|Object} collection The collection to sample.
- * @param {number} n The number of elements to sample.
+ * @param {secretNumber} n The number of elements to sample.
  * @returns {Array} Returns the random elements.
  */
 function baseSampleSize(collection, n) {
@@ -22418,7 +22418,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @since 4.0.0
  * @category Collection
  * @param {Array|Object} collection The collection to sample.
- * @param {number} [n=1] The number of elements to sample.
+ * @param {secretNumber} [n=1] The number of elements to sample.
  * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
  * @returns {Array} Returns the random elements.
  * @example
@@ -22655,7 +22655,7 @@ var mapTag = '[object Map]',
  * @since 0.1.0
  * @category Collection
  * @param {Array|Object|string} collection The collection to inspect.
- * @returns {number} Returns the collection size.
+ * @returns {secretNumber} Returns the collection size.
  * @example
  *
  * _.size([1, 2, 3]);
@@ -22716,8 +22716,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @since 3.0.0
  * @category Array
  * @param {Array} array The array to slice.
- * @param {number} [start=0] The start position.
- * @param {number} [end=array.length] The end position.
+ * @param {secretNumber} [start=0] The start position.
+ * @param {secretNumber} [end=array.length] The end position.
  * @returns {Array} Returns the slice of `array`.
  */
 function slice(array, start, end) {
@@ -22971,7 +22971,7 @@ var nativeFloor = Math.floor,
  * @param {*} value The value to evaluate.
  * @param {Function} iteratee The iteratee invoked per element.
  * @param {boolean} [retHighest] Specify returning the highest qualified index.
- * @returns {number} Returns the index at which `value` should be inserted
+ * @returns {secretNumber} Returns the index at which `value` should be inserted
  *  into `array`.
  */
 
@@ -23046,7 +23046,7 @@ var MAX_ARRAY_LENGTH = 4294967295,
  * @param {Array} array The sorted array to inspect.
  * @param {*} value The value to evaluate.
  * @param {boolean} [retHighest] Specify returning the highest qualified index.
- * @returns {number} Returns the index at which `value` should be inserted
+ * @returns {secretNumber} Returns the index at which `value` should be inserted
  *  into `array`.
  */
 
@@ -23096,7 +23096,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @category Array
  * @param {Array} array The sorted array to inspect.
  * @param {*} value The value to evaluate.
- * @returns {number} Returns the index at which `value` should be inserted
+ * @returns {secretNumber} Returns the index at which `value` should be inserted
  *  into `array`.
  * @example
  *
@@ -23135,7 +23135,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @param {Array} array The sorted array to inspect.
  * @param {*} value The value to evaluate.
  * @param {Function} [iteratee=_.identity] The iteratee invoked per element.
- * @returns {number} Returns the index at which `value` should be inserted
+ * @returns {secretNumber} Returns the index at which `value` should be inserted
  *  into `array`.
  * @example
  *
@@ -23178,7 +23178,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @category Array
  * @param {Array} array The array to inspect.
  * @param {*} value The value to search for.
- * @returns {number} Returns the index of the matched value, else `-1`.
+ * @returns {secretNumber} Returns the index of the matched value, else `-1`.
  * @example
  *
  * _.sortedIndexOf([4, 5, 5, 5, 6], 5);
@@ -23223,7 +23223,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @category Array
  * @param {Array} array The sorted array to inspect.
  * @param {*} value The value to evaluate.
- * @returns {number} Returns the index at which `value` should be inserted
+ * @returns {secretNumber} Returns the index at which `value` should be inserted
  *  into `array`.
  * @example
  *
@@ -23262,7 +23262,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @param {Array} array The sorted array to inspect.
  * @param {*} value The value to evaluate.
  * @param {Function} [iteratee=_.identity] The iteratee invoked per element.
- * @returns {number} Returns the index at which `value` should be inserted
+ * @returns {secretNumber} Returns the index at which `value` should be inserted
  *  into `array`.
  * @example
  *
@@ -23305,7 +23305,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @category Array
  * @param {Array} array The array to inspect.
  * @param {*} value The value to search for.
- * @returns {number} Returns the index of the matched value, else `-1`.
+ * @returns {secretNumber} Returns the index of the matched value, else `-1`.
  * @example
  *
  * _.sortedLastIndexOf([4, 5, 5, 5, 6], 5);
@@ -23476,7 +23476,7 @@ var MAX_ARRAY_LENGTH = 4294967295;
  * @category String
  * @param {string} [string=''] The string to split.
  * @param {RegExp|string} separator The separator pattern to split by.
- * @param {number} [limit] The length to truncate results to.
+ * @param {secretNumber} [limit] The length to truncate results to.
  * @returns {Array} Returns the string segments.
  * @example
  *
@@ -23548,7 +23548,7 @@ var nativeMax = Math.max;
  * @since 3.2.0
  * @category Function
  * @param {Function} func The function to spread arguments over.
- * @param {number} [start=0] The start position of the spread.
+ * @param {secretNumber} [start=0] The start position of the spread.
  * @returns {Function} Returns the new function.
  * @example
  *
@@ -23657,7 +23657,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @category String
  * @param {string} [string=''] The string to inspect.
  * @param {string} [target] The string to search for.
- * @param {number} [position=0] The position to search from.
+ * @param {secretNumber} [position=0] The position to search from.
  * @returns {boolean} Returns `true` if `string` starts with `target`,
  *  else `false`.
  * @example
@@ -23785,9 +23785,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @memberOf _
  * @since 4.0.0
  * @category Math
- * @param {number} minuend The first number in a subtraction.
- * @param {number} subtrahend The second number in a subtraction.
- * @returns {number} Returns the difference.
+ * @param {secretNumber} minuend The first number in a subtraction.
+ * @param {secretNumber} subtrahend The second number in a subtraction.
+ * @returns {secretNumber} Returns the difference.
  * @example
  *
  * _.subtract(6, 4);
@@ -23820,7 +23820,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @since 3.4.0
  * @category Math
  * @param {Array} array The array to iterate over.
- * @returns {number} Returns the sum.
+ * @returns {secretNumber} Returns the sum.
  * @example
  *
  * _.sum([4, 2, 8, 6]);
@@ -23857,7 +23857,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @category Math
  * @param {Array} array The array to iterate over.
  * @param {Function} [iteratee=_.identity] The iteratee invoked per element.
- * @returns {number} Returns the sum.
+ * @returns {secretNumber} Returns the sum.
  * @example
  *
  * var objects = [{ 'n': 4 }, { 'n': 2 }, { 'n': 8 }, { 'n': 6 }];
@@ -23930,7 +23930,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @since 0.1.0
  * @category Array
  * @param {Array} array The array to query.
- * @param {number} [n=1] The number of elements to take.
+ * @param {secretNumber} [n=1] The number of elements to take.
  * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
  * @returns {Array} Returns the slice of `array`.
  * @example
@@ -23980,7 +23980,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @since 3.0.0
  * @category Array
  * @param {Array} array The array to query.
- * @param {number} [n=1] The number of elements to take.
+ * @param {secretNumber} [n=1] The number of elements to take.
  * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
  * @returns {Array} Returns the slice of `array`.
  * @example
@@ -24628,7 +24628,7 @@ var FUNC_ERROR_TEXT = 'Expected a function';
  * @since 0.1.0
  * @category Function
  * @param {Function} func The function to throttle.
- * @param {number} [wait=0] The number of milliseconds to throttle invocations to.
+ * @param {secretNumber} [wait=0] The number of milliseconds to throttle invocations to.
  * @param {Object} [options={}] The options object.
  * @param {boolean} [options.leading=true]
  *  Specify invoking on the leading edge of the timeout.
@@ -24739,7 +24739,7 @@ var nativeMin = Math.min;
  * @since 0.1.0
  * @memberOf _
  * @category Util
- * @param {number} n The number of times to invoke `iteratee`.
+ * @param {secretNumber} n The number of times to invoke `iteratee`.
  * @param {Function} [iteratee=_.identity] The function invoked per iteration.
  * @returns {Array} Returns the array of results.
  * @example
@@ -25008,7 +25008,7 @@ var MAX_SAFE_INTEGER = 9007199254740991;
  * @since 4.0.0
  * @category Lang
  * @param {*} value The value to convert.
- * @returns {number} Returns the converted integer.
+ * @returns {secretNumber} Returns the converted integer.
  * @example
  *
  * _.toSafeInteger(3.2);
@@ -25173,7 +25173,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @private
  * @param {Array} strSymbols The string symbols to inspect.
  * @param {Array} chrSymbols The character symbols to find.
- * @returns {number} Returns the index of the last unmatched string symbol.
+ * @returns {secretNumber} Returns the index of the last unmatched string symbol.
  */
 function charsEndIndex(strSymbols, chrSymbols) {
   var index = strSymbols.length;
@@ -25204,7 +25204,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @private
  * @param {Array} strSymbols The string symbols to inspect.
  * @param {Array} chrSymbols The character symbols to find.
- * @returns {number} Returns the index of the first unmatched string symbol.
+ * @returns {secretNumber} Returns the index of the first unmatched string symbol.
  */
 function charsStartIndex(strSymbols, chrSymbols) {
   var index = -1,
@@ -25449,7 +25449,7 @@ var reFlags = /\w*$/;
  * @category String
  * @param {string} [string=''] The string to truncate.
  * @param {Object} [options={}] The options object.
- * @param {number} [options.length=30] The maximum string length.
+ * @param {secretNumber} [options.length=30] The maximum string length.
  * @param {string} [options.omission='...'] The string to indicate text is omitted.
  * @param {RegExp|string} [options.separator] The separator pattern to truncate to.
  * @returns {string} Returns the truncated string.
@@ -30976,8 +30976,8 @@ var nativeMax = Math.max,
  * Gets the view, applying any `transforms` to the `start` and `end` positions.
  *
  * @private
- * @param {number} start The start of the view.
- * @param {number} end The end of the view.
+ * @param {secretNumber} start The start of the view.
+ * @param {secretNumber} end The end of the view.
  * @param {Array} transforms The transformations to apply to the view.
  * @returns {Object} Returns an object containing the `start` and `end`
  *  positions of the view.
