@@ -14,14 +14,28 @@ const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 
+let scores, currentScore,activePlayer, playing;
 // starting conditions
-score0El.textContent = 0;
-score1El.textContent = 0
-diceEl.classList.add('hidden');
-let currentScore = 0;
-let activePlayer = 0;
-const scores = [0, 0];
-let playing = true;
+const init = function () {
+    currentScore = 0;
+    activePlayer = 0;
+    scores = [0, 0];
+    playing = true;
+
+    current0El.textContent = 0;
+    current1El.textContent = 0;
+    score1El.textContent = 0;
+    score0El.textContent = 0;
+    score0El.textContent = 0;
+    score1El.textContent = 0
+
+    diceEl.classList.add('hidden');
+    player0El.classList.remove('player--winner');
+    player1El.classList.remove('player--winner');
+    player0El.classList.add('player--active');
+    player1El.classList.remove('player--active');
+}
+init();
 
 const switchPlayer = function () {
     // switch player
@@ -60,7 +74,7 @@ btnHold.addEventListener('click', function () {
         console.log(scores[activePlayer]);
         document.getElementById(`score--${activePlayer}`).textContent = scores[activePlayer];
         //ketika score >= 100, maka permainan berakhir dengan salah satu player menang
-        if (scores[activePlayer] >= 10) {
+        if (scores[activePlayer] >= 100) {
             // finish the game
             playing = false;
             diceEl.classList.add('hidden');
@@ -74,16 +88,9 @@ btnHold.addEventListener('click', function () {
 
 })
 
-btnNew.addEventListener('click', function () {
-    document.querySelector(`.player--${activePlayer}`).classList.remove('player--winner');
-    document.querySelector(`.player--0`).classList.add('player-active');
-    current0El.textContent = 0;
-    current1El.textContent = 0;
-    scores[activePlayer] = 0;
-    score1El.textContent = 0;
-    score0El.textContent = 0;
+btnNew.addEventListener('click',  function (){
+    init();
     diceEl.classList.remove('hidden');
-    playing = true;
 })
+    // diceEl.classList.remove('hidden');
 
-// new game, ada error (wrong logic)
