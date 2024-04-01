@@ -4,6 +4,25 @@
 const flights =
     '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
+
+const weekday = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+// object hours akan digunakan pada object restaurant
+const hours = {
+    [weekday[3]]: {
+        open: 12,
+        close: 22,
+    },
+    [weekday[4]]: {
+        open: 11,
+        close: 23,
+    },
+    [weekday[5]]: {
+        open: 0, // Open 24 hours
+        close: 24,
+    },
+};
+
 // Data needed for first part of the section
 const restaurant = {
     name: 'Classico Italiano',
@@ -12,24 +31,13 @@ const restaurant = {
     starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
     mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-    openingHours: {
-        thu: {
-            open: 12,
-            close: 22,
-        },
-        fri: {
-            open: 11,
-            close: 23,
-        },
-        sat: {
-            open: 0, // Open 24 hours
-            close: 24,
-        },
-    },
 
     order: function (starterIndex, mainIndex) {
         return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
     },
+
+    // ES6 enhanced object literals
+    hours,
 
     // orderDelivery: function (obj) {
     //     console.log(obj);
@@ -41,16 +49,26 @@ const restaurant = {
     // }
 
     // memberikan default values jika valuesnya tidak di set
-    orderDelivery: function ({starterIndex = 1, mainIndex = 0, time = '20:00', address}) {
+    // orderDelivery: function ({starterIndex = 1, mainIndex = 0, time = '20:00', address}) {
+    //     console.log(`Order received ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
+    // },
+    orderDelivery({starterIndex = 1, mainIndex = 0, time = '20:00', address}) {
         console.log(`Order received ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
     },
 
-    orderPasta: function (ing1, ing2, ing3) {
+    // orderPasta: function (ing1, ing2, ing3) {
+    //     console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}!`);
+    // },
+    orderPasta(ing1, ing2, ing3) {
         console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}!`);
     },
 
     // hasilny adalah value dari main ingredient ditambah dengan array dari rest element
-    orderPizza: function (mainIngredient, ...otherIngredient) {
+    // orderPizza: function (mainIngredient, ...otherIngredient) {
+    //     console.log(mainIngredient);
+    //     console.log(otherIngredient);
+    // }
+    orderPizza(mainIngredient, ...otherIngredient) {
         console.log(mainIngredient);
         console.log(otherIngredient);
     }
@@ -181,8 +199,79 @@ rest2.owner &&= '<ANONYMOUS>';
 // const mainMenuCopy = [...restaurant.mainMenu];
 
 // join 2 array
-// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 // console.log(menu);
+
+// LOOPING ARRAYS :  FOR-OF LOOP
+
+// for statement ini lebih mirip ke foreach, hanya saja menggunakan of
+// dan penempatan array dengan variable yang menyimpan data loop terbalik
+// for (const items of menu) console.log(items);
+
+// for(const item of menu.entries()){
+for (const [i, el] of menu.entries()) {
+    // console.log(`${i + 1} : ${el}`);
+    // console.log(item); // ini akan menampilkan data dengan no index-nya
+}
+
+// OPTIONAL CHAINING (?.)
+
+if (restaurant.hours && restaurant.hours.mon)
+    console.log(restaurant.hours.mon.open);
+
+// WITH OPTIONAL CHAINING
+// ini artinya adalah, jika properti yang ada di depan tanda tanya dan dot (?.) exist, maka properti selanjutnya akan di eksekusi.
+// jika properti tidak exits dan tidak null dan tidak undefined
+// console.log(restaurant.hours.mon?.open);
+
+// Example
+// optional chaining, nullish operator, dan for-of operator
+const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+for (const day of days) {
+    const open = restaurant.hours[day]?.open ?? 'closed';
+    // console.log(`on ${day}, we open at ${open}`);
+}
+
+// optional chaining in METHODS
+// console.log(restaurant.order?.(0,1) ?? 'methods does not exist');
+// console.log(restaurant.orderRisotto?.(0,1) ?? 'methods does not exist'); // jika optional chaining menghasilkan undefined,
+// maka nullish operator akan me-return string 'methods does not exist';
+
+// optional chaining in ARRAYS
+const user = [{
+    name: 'Naya',
+    email: 'nay@gmail.com'
+}];
+// name?.name -> jika properti name ditemukan pada method user maka tampilkan value dari properti name
+// jika tidak, maka tampilkan string false dari nullish operator
+// console.log(user[0]?.name ?? 'user array does not exist');
+
+// LOOPING OBJECT : object values, object keys and entries
+
+// Property NAMES
+const properties = Object.keys(hours);
+// console.log(properties);
+
+let openStr = `We are open on ${properties.length} days: `;
+for (const day of properties) {
+    openStr += `${day}, `; // akan menampilkan nama" dari keys-nya
+}
+// console.log(openStr);
+
+// Property VALUES
+const values = Object.values(hours);
+// console.log(values); // akan menampilkan values dari object
+
+// Entires Object
+const entries = Object.entries(hours);
+// entries mengubah object menjadi array
+// console.log(entries); // akan menampilkan data berupa array
+
+// [key, object] -> jika object memiliki value yang simpel :)
+// {open, close} -> necessary karena valuesnya berupa object
+for (const [key, {open, close}] of entries) {
+    // console.log(`On ${key} we open at ${open} dan close at ${close}`);
+}
 
 // Iterables: arrays, strings, maps, sets. NOT objects
 // spread operator pada string
@@ -231,7 +320,7 @@ const {name, openingHours, categories} = restaurant;
 // console.log(name, openingHours, categories);
 
 // mengganti nama
-const {name: restaurantName, openingHours: hours, categories: tags} = restaurant;
+// const {name: restaurantName, openingHours: hours, categories: tags} = restaurant;
 // console.log(restaurantName, hours, tags);
 
 //set default value
@@ -249,10 +338,10 @@ const obj = {a: 23, b: 21, c: 14};
 // console.log(a, b);
 
 // NESTED OBJECT
-const {
-    fri: {open: o, close: c}, // fri adalah object yang ada di object restaurant (object di dalam object)
-    // open dan close adalah inner object dari object fri
-} = openingHours;
+// const {
+//     fri: {open: o, close: c}, // fri adalah object yang ada di object restaurant (object di dalam object)
+//     // open dan close adalah inner object dari object fri
+// } = openingHours;
 // console.log(o, c); //
 
 // DESTRUCTURING ARRAY
@@ -296,13 +385,14 @@ const {
 // const [p = 1, q = 1, r = 1] = [8,4]; // jika di suatu posisi nilainya tidak di set, maka nilainya menjadi akan 1 (default value)
 // console.log(p,q,r);
 
-// CODING CHALLENGES
+// CODING CHALLENGES #1
 
 const game = {
     team1: 'Bayern Munich',
     team2: 'Borrussia Dortmund',
     players: [
-        ['Neur',
+        [
+            'Neur',
             'Pavard',
             'Martinez',
             'Alaba',
@@ -338,24 +428,63 @@ const game = {
     },
 }
 
+// 1
 const [player1, player2] = game.players;
-console.log(player1, player2);
+// console.log(player1, player2);
 
+// 2
 const [gk, ...fieldPlayer] = player1;
-console.log(gk, fieldPlayer);
+// console.log(gk, fieldPlayer);
 
+// 3
 const allPlayer = [...player1, ...player2];
-console.log(allPlayer);
+// console.log(allPlayer);
 
+//4
 const additionalPlayers = ['Thiago', 'Coutinho', 'Perisic'];
 const players1Final = [...player1, ...additionalPlayers]
 // const players1Final = [...player1, 'Thiago', 'Coutinho', 'Perisic'];
-console.log(players1Final);
+// console.log(players1Final);
 
-const {odds: {team1, x:draw, team2}} = game;
-console.log(team1, draw ,team2);
+// 5
+const {odds: {team1, x: draw, team2}} = game;
+// console.log(team1, draw ,team2);
 
-const printGoal = function(){
-
+// 6
+const printGoal = function (...players) {
+// console.log(`${players.length} goals were scored!`);
 }
-printGoal('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+// printGoal('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+// printGoal('Lewandowski', 'Kimmich');
+printGoal(...game.scored);
+
+// 7
+// menggunakan && operator untuk menggantikan if/else statement
+// team1 < team2 && console.log('Team 1 is more likely to win');
+// team1 > team2 && console.log('Team 2 is more likely to win');
+
+// CODING CHALLENGES #1
+
+// 1
+for (const [i, g] of game.scored.entries()) {
+    console.log(`Goal ${i + 1}: ${g}`);
+}
+
+// 2
+let avg = 0;
+const odds = Object.values(game.odds);
+// for (const odd of Object.values(game.odds)) {
+//     avg += odd;
+//     console.log(avg /= Object.values(game.odds).length);
+// }
+for (const odd of odds) avg += odd;
+avg /= odds.length;
+console.log(avg);
+
+
+// 3
+let oddStr = `Odd of victory `;
+for (const [team, odd] of Object.entries(game.odds)) {
+    let teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+    console.log(`Odd of ${teamStr}: ${odd}`);
+}
