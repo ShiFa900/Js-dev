@@ -385,6 +385,115 @@ const obj = {a: 23, b: 21, c: 14};
 // const [p = 1, q = 1, r = 1] = [8,4]; // jika di suatu posisi nilainya tidak di set, maka nilainya menjadi akan 1 (default value)
 // console.log(p,q,r);
 
+// SETS
+// sets berisi kumpulan-kumpulan dari unique values, sets merupakan iterable
+// setiap values hanya akan muncul satu kali setiap Sets, dan set dapat menyimpan type data apa saja
+
+// const namesSet = new Set([
+//     'Jamal',
+//     'Ferra',
+//     'Jamal',
+//     'Corgi',
+//     'Ferra'
+// ]);
+// console.log(namesSet); // hanya akan menampilkan data" yang unique
+// console.log(new Set('Jamol')); // akan menampilkan 'j', 'a', 'm', 'o', 'l'
+//
+// console.log(namesSet.size); // akan menampilkan length/jumlah elemnt yang ada
+// console.log(namesSet.has('Corgi')); // menampilkan boolen apakah element ada atau tidak
+// namesSet.add('Colin'); // akan menambahkan element pada object
+// namesSet.delete('Corgi');
+// // namesSet.clear(); // object namesSet akan menjadi empty
+// console.log(namesSet);
+//
+// // Sets adalah iterables, maka bisa di loop
+// for (const name of namesSet) console.log(name);
+//
+// // Example
+// const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Waiter'];
+// // const staffUnique = new Set(staff); // hasilnya adalah unique values
+// const staffUnique = [...new Set(staff)]; // untuk menjadikannya array
+// console.log(staffUnique);
+//
+// // counting how many difference letters in a string
+// console.log(new Set('kasurrusak').size);
+
+// MAPS: fundamentals
+// maps adalah data struktur yang digunakan untuk 'mengubah' maps values -> keys
+// keysnya bisa bertype apa saja, bahkan object
+const rest = new Map();
+rest.set('name', 'Classy Coffe'); // meng set values untuk map rest
+rest.set(1, 'Jln.Soekarno');
+
+rest
+    .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+    .set('open', 11)
+    .set('close', 23)
+    .set(true, 'Yes, we are open :D')
+    .set(false, 'Sorry, we are closed :(')
+
+// console.log(rest.get('name'));
+// console.log(rest.get(true));
+// console.log(rest.get(1));
+// console.log(rest.get('categories'));
+
+// const time = 9;
+// console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+// MAPS: Iteration
+// the first position will be the key
+// the second position will be the values
+const question = new Map([
+    ['question', 'What is the best programming language in the world?'],
+    [1, 'C'],
+    [2, 'Java'],
+    [3, 'JavaScript'],
+    ['correct', 3],
+    [true, 'Correct 🎉'],
+    [false, 'Try again']
+])
+// console.log(question);
+// mirip dengan yang satu ini
+// console.log(Object.entries(hours));
+// convert OBJECT to MAP
+const hoursMap = new Map(Object.entries(hours));
+// console.log(hoursMap);
+// Iteration in MAPS
+// console.log(question.get('question'));
+for(const [key, value] of question){
+    // if(typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+}
+// const answer = Number(prompt('Your answer'));
+// console.log(answer);
+
+// console.log(question.get('correct') === answer ? question.get(true) : question.get(false));
+// console.log(question.get(question.get('correct') === answer));
+// convert MAP to ARRAY
+// console.log(...question);
+// // console.log(question.entries());
+// console.log(...question.keys());
+// console.log(...question.values());
+
+// WORKING WITH STRING #1
+const airlines = 'TAP Air Portugal';
+const plane = 'A320';
+// akan mendapatkan value dari urutan pertama
+// padahal ini string yak (?)
+console.log(plane[0]);
+
+// menghitung panjang /length dari sebuah string
+console.log(airlines.length);
+console.log('Masala037'.length);
+
+// mengambil index ke-n/position dari sebuah string
+console.log(airlines.indexOf('i'));
+console.log(airlines.lastIndexOf('al')); // return index dari urutan 'al' pada urutan terakhir dari string
+
+// menggunakan slice pada string
+console.log(airlines.slice(4));
+// lanjutkan di section 9 eps 122 working with string
+
+
 // CODING CHALLENGES #1
 
 const game = {
@@ -463,11 +572,11 @@ printGoal(...game.scored);
 // team1 < team2 && console.log('Team 1 is more likely to win');
 // team1 > team2 && console.log('Team 2 is more likely to win');
 
-// CODING CHALLENGES #1
+// CODING CHALLENGES #2
 
 // 1
 for (const [i, g] of game.scored.entries()) {
-    console.log(`Goal ${i + 1}: ${g}`);
+    // console.log(`Goal ${i + 1}: ${g}`);
 }
 
 // 2
@@ -479,12 +588,69 @@ const odds = Object.values(game.odds);
 // }
 for (const odd of odds) avg += odd;
 avg /= odds.length;
-console.log(avg);
+// console.log(avg);
 
 
 // 3
 let oddStr = `Odd of victory `;
 for (const [team, odd] of Object.entries(game.odds)) {
     let teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
-    console.log(`Odd of ${teamStr}: ${odd}`);
+    // console.log(`Odd of ${teamStr}: ${odd}`);
 }
+
+// 4 (BONUS)
+const scores = {}
+for (const player of game.scored) {
+    // tambahkan properti ke dalam object scores
+    // jika player tertentu ditemukan dalam object (for pertama) maka valueny menjadi 1
+    // jika player ternyata melakukan scored lebih dari satu, maka ++ dari nilai sebelumnya
+    scores[player] ? scores[player]++ : scores[player] = 1;
+}
+// console.log(scores);
+
+// CODING CHALLENGE #3
+//1. Create an array 'events' of the different game events that happened (no
+// duplicates)
+// 2. After the game has finished, is was found that the yellow card from minute 64
+// was unfair. So remove this event from the game events log.
+// 3. Compute and log the following string to the console: "An event happened, on
+// average, every 9 minutes" (keep in mind that a game has 90 minutes)
+// 4. Loop over 'gameEvents' and log each element to the console, marking
+// whether it's in the first half or second half (after 45 min) of the game, like this:
+// [FIRST HALF] 17: ⚽ GOAL
+const gameEvent = new Map([
+    [17, '⚽️ GOAL'],
+    [36, '🔁 Substitution'],
+    [47, '⚽️ GOAL'],
+    [61, '🔁 Substitution'],
+    [64, '🔶 Yellow card'],
+    [69, '🔴 Red card'],
+    [70, '🔁 Substitution'],
+    [72, '🔁 Substitution'],
+    [76, '⚽️ GOAL'],
+    [80, '⚽️ GOAL'],
+    [92, '🔶 Yellow card'],
+]);
+//1
+const events =  [...new Set(gameEvent.values())];
+// console.log(events);
+
+//2
+gameEvent.delete(64);
+// console.log(gameEvent);
+
+//3
+// console.log(`An event happened, on average ${90/gameEvent.size} minutes`);
+const time = [...gameEvent.keys()].pop();
+// console.log(time);
+// console.log(
+//     `An event happened, on average, every ${time / gameEvent.size} minutes`
+// );
+
+//4
+for(const [t, event] of gameEvent){
+    const section = t <= 45 ? 'FIRST' : 'SECOND';
+    // console.log(`${section} HALF ${t}: ${event}`);
+}
+
+
