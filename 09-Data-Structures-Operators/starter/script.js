@@ -460,7 +460,7 @@ const hoursMap = new Map(Object.entries(hours));
 // console.log(hoursMap);
 // Iteration in MAPS
 // console.log(question.get('question'));
-for(const [key, value] of question){
+for (const [key, value] of question) {
     // if(typeof key === 'number') console.log(`Answer ${key}: ${value}`);
 }
 // const answer = Number(prompt('Your answer'));
@@ -479,20 +479,177 @@ const airlines = 'TAP Air Portugal';
 const plane = 'A320';
 // akan mendapatkan value dari urutan pertama
 // padahal ini string yak (?)
-console.log(plane[0]);
+// console.log(plane[0]);
 
-// menghitung panjang /length dari sebuah string
-console.log(airlines.length);
-console.log('Masala037'.length);
+// // menghitung panjang /length dari sebuah string
+// console.log(airlines.length);
+// console.log('Masala037'.length);
 
-// mengambil index ke-n/position dari sebuah string
-console.log(airlines.indexOf('i'));
-console.log(airlines.lastIndexOf('al')); // return index dari urutan 'al' pada urutan terakhir dari string
+// // mengambil index ke-n/position dari sebuah string
+// console.log(airlines.indexOf('i'));
+// console.log(airlines.lastIndexOf('al')); // return index dari urutan 'al' pada urutan terakhir dari string
 
-// menggunakan slice pada string
-console.log(airlines.slice(4));
-// lanjutkan di section 9 eps 122 working with string
+// // menggunakan slice pada string
+// console.log(airlines.slice(4)); // ini akan menghasilkan new string, karena itu console.log() dapat digunakan
+// the length dari extracted string adalah end - beginning, pada example di bawah akan menghasilkan 3
+// *note: spasi dihitung 1
+// console.log(airlines.slice(4,7));
+// // mendapatkan value index pertama
+// console.log(airlines.slice(0, airlines.indexOf(' ')));
+// // mendapatkan value dari index terakhir
+// // + 1 di bawah ini untuk menghilangkan space nya saat ditampilkan
+// console.log(airlines.slice(airlines.lastIndexOf(' ') + 1));
 
+// console.log(airlines.slice(-2)); // akan menampilkan 2 huruf paling belakang dari kumpulan string Portugal -> al
+// console.log(airlines.slice(1, -1)); // akan menampilkan TAP Air Portugal -> AP Air Portuga
+
+// Example
+// const checkMiddleSeat = function (seat){
+//     // mengecek jika person mendapatkan seat B atau E, maka person tersebut dapat middle seat
+//     const lastSeatName = seat.slice(-1); // mendapatkan string hurufnya (B/E/...) dari nama seatnya
+//     if(lastSeatName === 'B' || lastSeatName === 'E'){
+//         console.log('You get seat on middle 🙃');
+//     } else {
+//         console.log('You are lucky 😄');
+//     }
+// }
+
+// checkMiddleSeat('11B');
+// checkMiddleSeat('23C');
+
+// WORKING WITH STRING #2
+
+// tidak memerlukan parameters, akan mengubah sebuah huruf menjadi lowercase
+// console.log(airlines.toLowerCase());
+// // akan mengubah semua huruf menjadi uppercase
+// console.log(airlines.toUpperCase());
+// digunakan langsung pada stringnya
+// console.log('jamal'.toUpperCase());
+const unormalName = 'JAmAL';
+// meng-lowercase kan string
+const nameLower = unormalName.toLowerCase();
+// menampilkan string dengan index ke-0 akan di uppercase terlebih dahulu, lalu dilanjutkan dengan sisa string selanjutnya
+// dimulai dari index ke-1
+// console.log(nameLower[0].toUpperCase() + nameLower.slice(1));
+
+// Example
+const email = 'hello@jamal.yahoo';
+const inputEmail = '  Hello@Jamal.YAHOO'; // contoh emailnya yang salah
+
+function returnCorrectEmail(email) {
+// const emailLower = email.toLowerCase();
+// const trimmed = emailLower.trim();
+    // akan me-return hasil dari email yang telah dilowercase dan di trim
+    // method trim akan menghilangkan extra space yang ada di string
+    return email.toLowerCase().trim();
+}
+
+// akan menghasilkan 'hello@jamal.yahoo'
+// console.log(returnCorrectEmail(inputEmail));
+// console.log(returnCorrectEmail(inputEmail) === email); // akan menghasilkan boolean untuk compare email
+
+// Replacing
+const priceIdr = '100,00';
+// akan me-replace value yang sesuai dengan replace value
+// replace -> akan me-replace HANYA satu value saja, maka contoh di bawah ini akan menghasilkan 10.00
+// replaceAll -> akan me-replace semua values yang sesuai dengan param replaceValue
+const priceUs = priceIdr.replace('0', '').replace(',', '.');
+// akan menampilkan 1, karena value 0 nya telah di replace
+// const priceTest = priceIdr.replaceAll('0', '');
+// console.log(priceUs);
+
+const announcement = 'All passengers come to boarding door 23. Boarding door 23!';
+// console.log(announcement.replace('door', 'gate')); // contoh lain ketika ingin menggnti dua value
+// console.log(announcement.replaceAll('door', 'gate')); // semua values 'door' akan diganti menjadi gate
+// // gaya replaceAll primitive
+// console.log(announcement.replace(/door/g, 'gate')); // return valueny akan sama seperti replaceAll
+
+// Boolean
+const planeName = 'Airbus 320neo';
+// console.log(planeName.includes('A320neo')); // akan menghasilkan true
+// console.log(planeName.includes('Boeing')); // akan menghasilkan false
+// console.log(planeName.startsWith('Air')); // akan menghasilkan false, karena tidak diawali dengan 'Air'
+// console.log(planeName.startsWith('A32')); // akan menghasilkan true, karena diawali 'A32'
+//
+// if(planeName.startsWith('Air') && planeName.endsWith('neo')){
+//     console.log('Part of the New member Airbus family');
+// }
+
+// exercise
+const checkBaggage = function (items) {
+    const baggage = items.toLowerCase(); // ubah dulu value input ke lowercase untuk melakukan compare
+    if (baggage.includes('knife') || baggage.includes('gun')) {
+        console.log('Sorry, you are not ALLOWED on board!');
+    } else {
+        console.log("Welcome on aboard");
+    }
+}
+
+// checkBaggage('I hava a laptop, a KNIFE and some bullets for my gun'); // ini tidak akan dizinkan
+// checkBaggage('I hava socks and Camera');
+
+// WORKING WITH STRING #3
+// Split & Join
+// akan menghasilkan sebuah array yang berisi string 'a very nice string'
+console.log('a+very+nice+string'.split('+'));
+console.log('Jamal Sasala'.split(' '));
+const [firstName, lastName] = 'Jamal Sasala'.split(' ');
+// akan men-separete string dengan values yang diberikan di method join
+const newName = ['Mr. ', firstName, lastName.toLowerCase()].join(' ');
+// const newName = ['Mr. ', firstName, lastName.toLowerCase()].join('---');
+console.log(newName);
+
+function capitalizeName(name) {
+    const separateName = name.split(' ');
+    const nameUpper = [];
+
+    // meng-uppercase setiap huruf yang ada diurutan pertama dari sebuah kata
+    for (const n of separateName) {
+        // nameUpper.push(n[0].toUpperCase() + n.slice(1));
+        // another way to do it
+        // ambil karakter di index ke-0, lalu ganti valuenya menjadi Uppercase di index yang sama
+        nameUpper.push(n.replace(n[0], n[0].toUpperCase()));
+    }
+    // akan menampilkan data berupa array
+    // console.log(nameUpper);
+    // akan menampilkan data bertype string yang di-separate dengan space/spasi
+    console.log(nameUpper.join(' '));
+}
+capitalizeName('hannah ann swirtch');
+capitalizeName('maria porchelski');
+
+// Padding
+const message = 'Go to gate 23';
+// limit panjang dari string
+console.log(message.padStart(25, '+').padEnd(30, '+'));
+// panjangnya akan sama, yaitu 25
+console.log('Jamal'.padStart(25, '+'));
+
+const maskCreditCard = function (number){
+const str = number + '';
+// hanya akan mengambil 4 value dari bagian kanan saja
+const last = str.slice(-4);
+// akan mengganti sisa value dengan simbol *
+return last.padStart(str.length, '*')
+}
+
+// work in this two
+console.log(maskCreditCard(90912801));
+console.log(maskCreditCard('90912801230901'));
+
+// Repeat
+// akan me-repeat string
+const message2 = 'Bad weather, all departures delayed... \n';
+// pesan di variable message2 akan di-repeat sebanyak 2 kali
+console.log(message2.repeat(2));
+const planesInLine = function (numberOfPlane){
+    // akan menampilkan pesan dengan numberOfPlane sesuai dengan param
+    // dan emoticon pesawat akan di-repeat sebanyak numberOfPlane
+    console.log(`There are ${numberOfPlane} planes in line ${'✈'.repeat(numberOfPlane)}`);
+}
+
+planesInLine(4);
+planesInLine(7);
 
 // CODING CHALLENGES #1
 
@@ -632,7 +789,7 @@ const gameEvent = new Map([
     [92, '🔶 Yellow card'],
 ]);
 //1
-const events =  [...new Set(gameEvent.values())];
+const events = [...new Set(gameEvent.values())];
 // console.log(events);
 
 //2
@@ -648,9 +805,48 @@ const time = [...gameEvent.keys()].pop();
 // );
 
 //4
-for(const [t, event] of gameEvent){
+for (const [t, event] of gameEvent) {
     const section = t <= 45 ? 'FIRST' : 'SECOND';
     // console.log(`${section} HALF ${t}: ${event}`);
 }
 
+///////////////////////////////////////
+// Coding Challenge #4
+
+/*
+Write a program that receives a list of variable names written in underscore_case and convert them to camelCase.
+
+The input will come from a textarea inserted into the DOM (see code below), and conversion will happen when the button is pressed.
+
+THIS TEST DATA (pasted to textarea)
+underscore_case
+ first_name
+Some_Variable
+  calculate_AGE
+delayed_departure
+
+SHOULD PRODUCE THIS OUTPUT (5 separate console.log outputs)
+underscoreCase      ✅
+firstName           ✅✅
+someVariable        ✅✅✅
+calculateAge        ✅✅✅✅
+delayedDeparture    ✅✅✅✅✅
+
+HINT 1: Remember which character defines a new line in the textarea 😉
+HINT 2: The solution only needs to work for a variable made out of 2 words, like a_b
+HINT 3: Start without worrying about the ✅. Tackle that only after you have the variable name conversion working 😉
+HINT 4: This challenge is difficult on purpose, so start watching the solution in case you're stuck. Then pause and continue!
+
+Afterward, test with your own test data!
+ */
+const text = ['underscore_case', 'first_name', 'Some_Variable', 'calculate_AGE', 'delayed_departure'];
+for(const s of text){
+    // ubah dulu string menjadi lowercase
+    const textLower = s.toLowerCase();
+    // replace under score _
+    const replaceUnderScore = textLower.replace('_', '');
+    console.log(replaceUnderScore);
+
+}
+// lanjutkan ygy :D
 
