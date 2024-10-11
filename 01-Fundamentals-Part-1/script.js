@@ -153,5 +153,19 @@ const bill = 40;
 let tip = bill >= 50 && bill <= 300 ?bill * 0.15 : bill * 0.2
 console.log(`The bill was ${bill}, the tip was ${tip}, and the total values is ${tip+bill}`); 
 
+// CODING CHALLENGE 1
+// menghitung dan melakukan perbandingan BMI (body mass index)
+const msMark = 78, msJohn = 92;
+const hMark = 1.69, hJohn = 1.95;
+
+// tanda ** sama artinya dengan hMark * hMark
+const markBmi = msMark / (hMark ** 2);
+const jonsBmi = msJohn / (hJohn ** 2);
+
+
+console.log(markBmi, jonsBmi)
+console.log(markBmi > jonsBmi);
+
+
 
 

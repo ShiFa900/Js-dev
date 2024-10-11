@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /*
 ///////////////////////////////////////
@@ -41,13 +41,20 @@ const num = Number('23');
 ///////////////////////////////////////
 // Function Declarations vs. Expressions
 
-// Function declaration
+// FUNCTION DECLARATIONg(generic function)
+// declarasi function pada JS sama halnya dengan pendeklarasian function di bahasa pemrogaman yang lain
+// membuat sebuah object yang function yang nantinya bisa digunakan/call/run di function yang lain atau di tempat lain (?)
+// di deklarasikan dengan function sebelum nama function
+
 function calcAge1(birthYeah) {
   return 2037 - birthYeah;
 }
 const age1 = calcAge1(1991);
 
-// Function expression
+// FUNCTION EXPRESIION
+// adalah sebuah object function yang value dari function tersebut di simpan ke dalam sebuah variable
+// it produce value, function ini juga disebut dengan anonim(anonymous function)
+
 const calcAge2 = function (birthYeah) {
   return 2037 - birthYeah;
 }
@@ -57,12 +64,15 @@ console.log(age1, age2);
 
 
 ///////////////////////////////////////
-// Arrow functions
+// ARROW FUNCTION (juga merupakan function expression)
+// pada arrow function tidak perlu menggunakan curly braces sebagai code block
+// menggunakan tanda panah sebagai pengganti keyword function
 
 const calcAge3 = birthYeah => 2037 - birthYeah;
 const age3 = calcAge3(1991);
 console.log(age3);
 
+// dengan memberikan lebih dari satu parameter pada arrow function
 const yearsUntilRetirement = (birthYeah, firstName) => {
   const age = 2037 - birthYeah;
   const retirement = 65 - age;
@@ -214,6 +224,7 @@ const newLength = friends.push('Jay');
 console.log(friends);
 console.log(newLength);
 
+// menambahkan data pada urutan pertama di dalam array
 friends.unshift('John');
 console.log(friends);
 
@@ -272,6 +283,11 @@ console.log(bills, tips, totals);
 
 ///////////////////////////////////////
 // Introduction to Objects
+// OBJECT
+// pada object terdapat PROPERTIE dan METHOD
+// PROPERTIE: adalah ciri khas dari sebuah object (variable)
+// METHOD: adalah prilaku (?) dari sebuah objek (function)
+
 const jonasArray = [
   'Jonas',
   'Schmedtmann',
@@ -280,12 +296,24 @@ const jonasArray = [
   ['Michael', 'Peter', 'Steven']
 ];
 
+// mengakses propertie dan method dari sebuah object:
+// gunakan tanda titik (.) yang diikuti dengan nama dari properti atau methodnya
+
+// mengakses propertie:
+jonas.job;
+
+// mengakses method:
+jonas.greeting();
+
 const jonas = {
   firstName: 'Jonas',
   lastName: 'Schmedtmann',
   age: 2037 - 1991,
   job: 'teacher',
   friends: ['Michael', 'Peter', 'Steven']
+  greeting: function(){
+  console.log('halo ges');
+  }
 };
 
 
@@ -439,6 +467,8 @@ for (let rep = 1; rep <= 30; rep++) {
 
 ///////////////////////////////////////
 // Looping Arrays, Breaking and Continuing
+// looping atau perulangan adalah counter loop yang artinya banyak perulangan dpt diketahui
+
 const jonas = [
   'Jonas',
   'Schmedtmann',
@@ -492,6 +522,7 @@ for (let i = 0; i < jonas.length; i++) {
 
 ///////////////////////////////////////
 // Looping Backwards and Loops in Loops
+// looping backward adalah perulangan yang men-decrease nilai dari counter (biasanya ditulis dengan variable i)
 const jonas = [
   'Jonas',
   'Schmedtmann',
@@ -519,6 +550,9 @@ for (let exercise = 1; exercise < 4; exercise++) {
 
 ///////////////////////////////////////
 // The while Loop
+// while looping adalah perulangan uncounted loop karena di lakukan selama bernilai true
+// bisa juga jadi counted loop, tinggal ditambahkan counternya
+
 for (let rep = 1; rep <= 10; rep++) {
   console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`);
 }
@@ -537,6 +571,19 @@ while (dice !== 6) {
   if (dice === 6) console.log('Loop is about to end...');
 }
 */
+
+// DO/WHILE
+// perulangan do while akan melakukan perulangan sebanyak 1 kali terlebih dahulu,
+// lalu akan mengecek kondisi dari variable di block while
+
+// perbedaan antara while dengan do/while yaitu, perulangan while akan melakukan pengecekan pada awal (sebelum melakukan perulangan)
+// sedangkan perulangan do/while akan melakukan pengecekan setelah melakukan perulangan
+
+/**
+ * do {
+ *  // blok kode yang akan diulang
+ * } while(kondisi)
+ */
 
 ///////////////////////////////////////
 // Coding Challenge #4
