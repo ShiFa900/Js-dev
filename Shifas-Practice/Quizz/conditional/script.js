@@ -13,7 +13,11 @@ const show = function () {
   const volume = calculateGeo();
   let geoName = "";
 
-  if (length === 10 && width === 10 && height === 10) {
+  const length = document.getElementById("length").value;
+  const width = document.getElementById("width").value;
+  const height = document.getElementById("height").value;
+
+  if (length == 10 && width == 10 && height == 10) {
     geoName = "Balok indah!";
   } else if (length === width && width === height) {
     geoName = "Kubus";
