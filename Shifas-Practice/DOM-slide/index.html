@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>slide!</title>
+    <script src=" https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js "></script>
+    <link
+      href=" https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css "
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
+
+    <!--ICON -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+  <body>
+    <section class="section-body container">
+      <div class="wrapper">
+        <div id="lines">
+          <div class="line">
+            <img src="pict/a4.jpg" alt="Litte flower" />
+            <span class="title">Litte flower</span>
+          </div>
+          <div class="line fade">
+            <img src="pict/a2.jpg" alt="Field with purple sky" />
+            <span class="title">Fields with purple sky</span>
+          </div>
+          <div class="line fade">
+            <img src="pict/a3.jpg" alt="Sunset on mountain" />
+            <span class="title">Sunset on mountain</span>
+          </div>
+          <div class="line fade">
+            <img src="pict/a5.jpg" alt="Sunset on fields" />
+            <span class="title">Sunset on fields</span>
+          </div>
+          <div class="line fade">
+            <img src="pict/a1.jpg" alt="Sunset on fields" />
+            <span class="title">Sunset on fields</span>
+          </div>
+          <div class="line fade">
+            <img src="pict/a6.jpg" alt="Sunset on fields" />
+            <span class="title">Sunset on fields</span>
+          </div>
+        </div>
+
+        <div class="btn-wrapper">
+          <button class="btn btn-prev" id="prev" onclick="prev()">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+          </button>
+          <button class="btn btn-next" id="next" onclick="next()">
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </button>
+        </div>
+      </div>
+
+      <div class="dot-indicator">
+        <!-- ini nanti banyaknya harus sesuai dengan data yang ada -->
+        <button class="dot" onclick="goToSlide(0)"></button>
+        <button class="dot" onclick="goToSlide(1)"></button>
+        <button class="dot" onclick="goToSlide(2)"></button>
+        <button class="dot" onclick="goToSlide(3)"></button>
+      </div>
+
+      <script src="script.js"></script>
+    </section>
+  </body>
+</html>

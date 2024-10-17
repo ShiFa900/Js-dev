@@ -7,6 +7,7 @@ const flights =
 const weekday = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 // object hours akan digunakan pada object restaurant
+// menggunakan object literal, dengan object weekday
 const hours = {
   [weekday[3]]: {
     open: 12,
