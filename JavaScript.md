@@ -426,3 +426,50 @@ pertama yang valuenya di set menjadi 8
     ```
 
     kode di atas akan menghasilkan: 'we are open on 2 (count dari openingHours) days: thu, sat,`
+
+    - property VALUES
+
+    ```
+    const values = Object.values(openingHours);
+    ```
+
+    kode di atas akan menghasilkan semua values dari object:
+
+    ```
+    0: {
+        open: 10
+        closed: 23
+    },
+    1: {
+        open: 10
+        closed: 12
+    }
+    ```
+
+    - properti OBJECT
+
+    ```
+    const entries = Object.entries(openingHours);
+    ```
+
+    kode di atas akan mengubah object menjadi array
+
+    ```
+    contohnya:
+    0: {
+        0: 'thu'
+        1: {open: 10, close: 23}
+    }
+    ```
+
+    convert menjadi nice and neat string,
+    btw {open, close} juga merupakan sebuah object
+
+    ```
+    for (const[key, {open, close}] of entries){
+        console.log(`On ${key} we open at ${open} and close at ${close}`);
+    }
+    ```
+
+    akan menampilkan pesan:
+    `On thu we open at 10 and close at 23`...

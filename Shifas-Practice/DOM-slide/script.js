@@ -1,7 +1,6 @@
 "use strict";
 
 let index = 0;
-let i = 0;
 const scale = 1300;
 
 const slides = document.getElementById("lines");
@@ -30,15 +29,12 @@ function goToSlide(idx) {
   if (index == 0) {
     disabledBtn.disabled = true;
   }
-
   slides.style.transform = "translateX(-" + idx * scale + "px)";
   dotIndicator(index);
 }
 
 const dotIndicator = function (i) {
   const dots = document.getElementsByClassName("dot");
-  console.log(dots[i]);
-  console.log(i);
 
   for (let j = 0; j < dots.length; j++) {
     dots[j].classList.remove("dot-fill");
@@ -46,4 +42,8 @@ const dotIndicator = function (i) {
   dots[i].classList.add("dot-fill");
 };
 
-goToSlide(0);
+// setInterval(function () {
+//   setTimeout(function () {
+//     next();
+//   });
+// }, 3000);
