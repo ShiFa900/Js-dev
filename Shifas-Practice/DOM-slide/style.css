@@ -5,9 +5,6 @@
   overflow: hidden;
 
   align-content: center;
-
-  /* position: absolute;
-  left: 16%; */
 }
 
 .container {
@@ -49,24 +46,8 @@
 .btn-wrapper {
   display: flex;
   justify-content: space-between;
-}
 
-/* .btn-next {
-  position: absolute;
-  top: 50%;
-  right: 3%;
-}
-
-.btn-prev {
-  position: absolute;
-  top: 50%;
-  left: 3%;
-} */
-
-.dot-indicator {
-  position: absolute;
-  right: 50%;
-  top: 92%;
+  margin-top: 0.5rem;
 }
 
 .dot {

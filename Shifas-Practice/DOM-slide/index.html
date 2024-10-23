@@ -48,17 +48,16 @@
           <button class="btn btn-prev" id="prev" onclick="prev()">
             <ion-icon name="chevron-back-outline"></ion-icon>
           </button>
+          <div class="dot-indicator">
+            <button class="dot dot-fill" onclick="goToSlide(0)"></button>
+            <button class="dot" onclick="goToSlide(1)"></button>
+            <button class="dot" onclick="goToSlide(2)"></button>
+            <button class="dot" onclick="goToSlide(3)"></button>
+          </div>
           <button class="btn btn-next" id="next" onclick="next()">
             <ion-icon name="chevron-forward-outline"></ion-icon>
           </button>
         </div>
-      </div>
-
-      <div class="dot-indicator">
-        <button class="dot dot-fill" onclick="goToSlide(0)"></button>
-        <button class="dot" onclick="goToSlide(1)"></button>
-        <button class="dot" onclick="goToSlide(2)"></button>
-        <button class="dot" onclick="goToSlide(3)"></button>
       </div>
 
       <script src="script.js"></script>
