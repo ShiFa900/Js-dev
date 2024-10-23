@@ -43,7 +43,5 @@ const dotIndicator = function (i) {
 };
 
 setInterval(function () {
-  setTimeout(function () {
-    next();
-  });
+  next();
 }, 3000);
