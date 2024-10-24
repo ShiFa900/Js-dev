@@ -17,20 +17,20 @@ Js is a programming language to instruct computer to do things. Js is Object-ori
     - number = floating points number, used for decimal and integer.
     - string = characters used for text
     - booles = logical types for taking desicion (true?false)
-        `5 type of falsy values = 0, '', undefined, null, Nan`
+        `5 type of falsy values = 0, "", undefined, null, Nan`
     - undefined = variable that not defines (empty value)
-    - null = also means 'empty value'
+    - null = also means "empty value"
     - symbol (ES2015) = unique values and cannot be changed (not used for now)
     - Bigint(ES2020) larger int than the number type can hold
     `values has type, not variable`
 
-let firstName = 'jamal',
+let firstName = "jamal",
 let age = 21,
 
 ### OBJECT
 
 let me = {
-name: 'jamal'
+name: "jamal"
 }
 
 ## Basic boolean logic in JS
@@ -60,7 +60,7 @@ name: 'jamal'
 
 ## Conversion from data type to another
 
-\*note: jika value yang diberikan bukan number 'angka' maka akan menghasilkan Nan (not a number);
+\*note: jika value yang diberikan bukan number "angka" maka akan menghasilkan Nan (not a number);
 
 - konversi string ke number = Number(number dlm string)
 
@@ -88,8 +88,9 @@ name: 'jamal'
 
    	// menggunakan destructuring array
    	const [x,y,z] = arr
-   	// terlihat seperti array, walau bukan, ini adalah destructuring.
    ```
+
+   value array dari sisi kanan akan mengisi variable yang ada di sisi kiri.
 
 1 . destructuring dengan switch value
 
@@ -229,9 +230,9 @@ pertama yang valuenya di set menjadi 8
 
     ```
     const obj1 = {
-       name: 'jamal',
+       name: "jamal",
        age: 23,
-       hobby: ['mancing', 'membaca', 'berkebun']
+       hobby: ["mancing", "membaca", "berkebun"]
     }
 
     const food = {
@@ -301,7 +302,7 @@ pertama yang valuenya di set menjadi 8
        - ternary operator
 
        ```
-       const guest = 'hello' && 12 && null && 'jamal'
+       const guest = "hello" && 12 && null && "jamal"
        ```
 
        kode di atas akan menghasilkan null, dalam menggunakan AND OPERATOR (&&) semua kondisi harus bernilai `true.`
@@ -311,7 +312,7 @@ pertama yang valuenya di set menjadi 8
        const guest = object.properti ?? 10;
        ```
        jika properti tidak di set valuenya/not exist maka akan menggunakan 10 sebagai value
-       `nullish value`: null dan undefined, bukan 0 atau ''.
+       `nullish value`: null dan undefined, bukan 0 atau "".
 
 6.  `LOGICAL ASSIGNMENT OPERATOR`
 
@@ -425,7 +426,7 @@ pertama yang valuenya di set menjadi 8
 
     ```
 
-    kode di atas akan menghasilkan: 'we are open on 2 (count dari openingHours) days: thu, sat,`
+    kode di atas akan menghasilkan: "we are open on 2 (count dari openingHours) days: thu, sat,`
 
     - property VALUES
 
@@ -457,7 +458,7 @@ pertama yang valuenya di set menjadi 8
     ```
     contohnya:
     0: {
-        0: 'thu'
+        0: "thu"
         1: {open: 10, close: 23}
     }
     ```
@@ -473,3 +474,243 @@ pertama yang valuenya di set menjadi 8
 
     akan menampilkan pesan:
     `On thu we open at 10 and close at 23`...
+
+11. `SETS`
+    set adalah tipe data selain array dan object. Sets juga merupakan `iterables (dpt di loop)`
+
+    ```
+    const menu = new Set([
+        "Ayam panggang",
+        "Nasi goreng",
+        "Ayam panggang",
+        "Sate babi",
+        "Soto",
+        "Nasi goreng",
+    ])
+    ```
+
+    di dalam array pada object set di atas memiliki beberapa data duplicate. Saat menggunakan `set`, hanya menampilkan satu data (jika duplikat).
+    kode di atas akan menampilkan: `ayam panggang, nasi goreng, sate babi, dan soto`.
+
+    - mendapatkan length dari data set
+
+    ```
+    console.log(menu.size) // 4 hasil dari data yang tidak duplikat
+    ```
+
+    - untuk mengecek jika data exist
+
+    ```
+    console.log(menu.has("Soto")) // true
+    console.log(menu.has("Opor")) // false
+    ```
+
+    - untuk menambah data
+
+    ```
+    menu.add("nama value");
+    ```
+
+    - untuk menghapus data
+
+    ```
+    menu.delete("nama data");
+    ```
+
+    - tidak ada index pada set
+
+    ```
+    console.log(menu[0]) // ini akan menghasilkan undefined
+    ```
+
+    - menghapus semua value pada set
+
+    ```
+    menu.clear();
+    ```
+
+    - looping untuk set
+
+    ```
+    for(const order of menu) console.log(order); // menampilkan data (tidak duplikat)
+    ```
+
+    data pada set tidak perlu di keluarkan dari set group, karena jika value harus unik dan tidak urutan tidak dipedulikan, maka tidak ada poinnya untuk mengeluarkan data pada set.
+
+12. `MAPS`
+
+    - menambahkan key dan value pada maps
+
+    ```
+    const rest = new Map()
+    rest.set("key_name", value) // key dengan string
+    rest.set(1, value) // values dengan int
+    ```
+
+    - menambahkan data dalam sekali jalan
+
+    ```
+    rest.set("categories, ["Italian", "Pizzeria", "Vegetarain", "Organic"])
+    .set("open", 11)
+    .set("close", 23)
+    .set(true, "yes, we"re open :D")
+    .set(false, "sorry, we"re closed :v")
+    ```
+
+    - mendapatkan dari sebuah map
+
+    ```
+    console.log(rest.get("key_name")) // nama yang di-set
+    console.log(rest.get(true))
+    ```
+
+13. `Which data stucture to use?`
+
+    - jika mempunyai list of data simple (tanpa key), gunakan `Array atau Set`.
+    - jika memerlukan data structure yang lebih komplek, dengan key/value pairs, gunakan `Object atau Map`.
+
+14. WORKING WITH STRING (part 1)
+
+    - mengakses string dengan nomor index (basis nya dari 0)
+
+    ```
+    const airline = "TAP Air Portugal";
+    const plane = "B737";
+
+    console.log(plane[0]) // B
+    console.log(airline.length) // 16
+    ```
+
+    - indexOf
+
+    ```
+    console.log(airline.indexOf("r")) // 4
+    console.log(airline.lastIndexOf("r")) // 10
+    console.log(airline.indexOf("Portugal")) // 8 (case sensitive)
+    ```
+
+    - slice
+
+    ```
+    console.log(airline.slice(4)) // Air Portugal (substring)
+    console.log(airline.slice(4, 7)) // Air (angka terakhir - angka awal)
+    console.log(airline.slice(0, airline.indexOf(" "))) // TAP
+    console.log(airline.slice(airline.lastIndexOf(" ") + 1)) // Portugal
+
+    console.log(airline.slice(-2)) // al (huruf terakhir dari kata Portugal)
+    console.log(airline.slice(1, -1)) // AP Air Portuga
+    ```
+
+    jika method slice tidak diberi param di bagian awal, maka akan langsung include keseluruhan string.
+
+15. `WORKING WITH STRING (part 2)
+
+    1. lowercase dan uppercase
+
+    ```
+    const txt = "KloMubiE"
+    console.log(txt.toLowerCase()) // "klomubie"
+    console.log(txt.toUpperCase()) // "KLOMUBIE"
+
+    const txtLower = txt.toLowercase();
+    const txtCorrect = txtLower[0].toUpperCase + txtLower.slice(1); // Klomubie
+
+    const email = "  Klo@Mubie.Com \n";
+    const emailLower = email.toLowerCase();
+    const emailCorrect = emailLower.trim() // menghilangkan kelebihan space
+    const simpleWay = email.toLowerCase().trim(); // dengan chaining
+    ```
+
+    2. replacing
+
+    ```
+    const tandaBintang = "*Halo ges*";
+    const tandaHash = tandaBintang.replace("*", "#"); // "#Halo ges#"
+
+    const tandaHash = tandaBintang.replaceAll("*", "#"); //  untuk mengganti semua element
+    ```
+
+    3. boolean
+
+    ```
+    const plane = "Airline A3340";
+    console.log(plane.include("334")) // true
+    console.log(plane.include("B78")) // false
+    console.log(plane.startsWith("Air")) // true
+    console.log(plane.endsWith("Air")) // true
+    ```
+
+16. `WORKING WITH STRING (part 3)`
+
+    1. split & join
+
+    ```
+    console.log("a+very+nice+string".split("+")) // ["a", "very", "nice", "string"]
+    console.log("Jamal Sharof".split(" ")) // ["Jamal", "Sharof"]
+
+    const [firstName, lastName] = "Jane Sharone".split(" ");
+    const newFormat = ["Ms.", firstName, lastName.toUpperCase().join("-")] // "Ms.-Jane-Sharone"
+    ```
+
+    - split: akan memecah sebuah string yang tipe datanya akan berubah menjadi array
+    - join: akan menggabungkan sebuah element dengan separator yang diberikan
+
+    - capitalize huruf pertama
+
+    ```
+    const capitalizeName = function(name){
+        const names = name.split(" ");
+        const namesUpper = [];
+
+        for(const n of names){
+            namesUpper.push(n[0].toUpperCase() + n.slice(1))
+            // capitalize huruf pertama lalu digabungkan dengan sisa katanya
+
+            namesUpper.push(replace(n[0], n[0].toUpperCase)) // cara lain
+        }
+    }
+
+    capitalizeName("sarah whine weller") // return Sarah Whine Weller
+    capitalizeName("jone srachment") // Jone Srachment
+    ```
+
+    - padding
+
+    ```
+    const msg = "Jane";
+    console.log(msg.pasStart(10, "+").padEnd(20, "+"))
+    //++++++Jane++++++++++
+    ```
+
+    akan memberikan padding pada bagian awal dan akhir, panjang dari padding akan sesuai dengan besar nilai yang diberikan.
+    Pada bagian kiri (start), jumlah simbol + ada sebanyak 6 yang jika ditambah dengan kata "Jane" maka hasilnya menjadi 10, sesuai dengan panjang yang di set pada padding start.
+    Pada bagian kanan (end), jumalh simbol + ada 10 yang merupakan sisa panjang dari value yang diberikan, karena pada bagian kiri telah mengambil sepanjang 10.
+
+    - hidden symbol
+
+    ```
+    const maskCreditCard = function(number){
+        const str = number + "";
+        const last = str.slice(-4) // mendapatkan 4 element terakhir dari int atau string
+
+        return last.pasStart(str.length, "*") // sisa element akan diganti dengan simbol *
+    }
+
+    console.log(maskCreditCard(1234589)) // ***4589
+    console.log(maskCreditCard("678912348012")) // ********8012
+    ```
+
+    - repeat
+
+    ```
+    const msg = "Nyaloo ges";
+    console.log(msg.repeat(5)) // msg di atas akan di repeat sebanyak 5 kali
+
+    const planeInLine = function(n){
+        console.log(`There are ${n} planes in line ${"<[]<".repeat(n)})
+    }
+    akan merepeat emoji <[]< (ceritanya pesawat) sebanyak n
+
+    planeInLine(5);
+    planeInLine(3);
+    ```

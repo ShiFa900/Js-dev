@@ -53,16 +53,16 @@ const restaurant = {
   //     console.log(`Order received ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
   // },
   orderDelivery({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
-    console.log(
-      `Order received ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
-    );
+    // console.log(
+    //   `Order received ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    // );
   },
 
   // orderPasta: function (ing1, ing2, ing3) {
   //     console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}!`);
   // },
   orderPasta(ing1, ing2, ing3) {
-    console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}!`);
+    // console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}!`);
   },
 
   // hasilny adalah value dari main ingredient ditambah dengan array dari rest element
@@ -71,8 +71,8 @@ const restaurant = {
   //     console.log(otherIngredient);
   // }
   orderPizza(mainIngredient, ...otherIngredient) {
-    console.log(mainIngredient);
-    console.log(otherIngredient);
+    // console.log(mainIngredient);
+    // console.log(otherIngredient);
   },
 };
 
@@ -217,8 +217,9 @@ for (const [i, el] of menu.entries()) {
 
 // OPTIONAL CHAINING (?.)
 
-if (restaurant.hours && restaurant.hours.mon)
-  console.log(restaurant.hours.mon.open);
+if (restaurant.hours && restaurant.hours.mon) {
+}
+// console.log(restaurant.hours.mon.open);
 
 // WITH OPTIONAL CHAINING
 // ini artinya adalah, jika properti yang ada di depan tanda tanya dan dot (?.) exist, maka properti selanjutnya akan di eksekusi.
@@ -584,9 +585,9 @@ const planeName = 'Airbus 320neo';
 const checkBaggage = function (items) {
   const baggage = items.toLowerCase(); // ubah dulu value input ke lowercase untuk melakukan compare
   if (baggage.includes('knife') || baggage.includes('gun')) {
-    console.log('Sorry, you are not ALLOWED on board!');
+    // console.log('Sorry, you are not ALLOWED on board!');
   } else {
-    console.log('Welcome on aboard');
+    // console.log('Welcome on aboard');
   }
 };
 
@@ -596,13 +597,13 @@ const checkBaggage = function (items) {
 // WORKING WITH STRING #3
 // Split & Join
 // akan menghasilkan sebuah array yang berisi string 'a very nice string'
-console.log('a+very+nice+string'.split('+'));
-console.log('Jamal Sasala'.split(' '));
+// console.log('a+very+nice+string'.split('+'));
+// console.log('Jamal Sasala'.split(' '));
 const [firstName, lastName] = 'Jamal Sasala'.split(' ');
 // akan men-separete string dengan values yang diberikan di method join
 const newName = ['Mr. ', firstName, lastName.toLowerCase()].join(' ');
 // const newName = ['Mr. ', firstName, lastName.toLowerCase()].join('---');
-console.log(newName);
+// console.log(newName);
 
 function capitalizeName(name) {
   const separateName = name.split(' ');
@@ -618,7 +619,7 @@ function capitalizeName(name) {
   // akan menampilkan data berupa array
   // console.log(nameUpper);
   // akan menampilkan data bertype string yang di-separate dengan space/spasi
-  console.log(nameUpper.join(' '));
+  // console.log(nameUpper.join(' '));
 }
 capitalizeName('hannah ann swirtch');
 capitalizeName('maria porchelski');
@@ -626,9 +627,9 @@ capitalizeName('maria porchelski');
 // Padding
 const message = 'Go to gate 23';
 // limit panjang dari string
-console.log(message.padStart(25, '+').padEnd(30, '+'));
+// console.log(message.padStart(25, '+').padEnd(30, '+'));
 // panjangnya akan sama, yaitu 25
-console.log('Jamal'.padStart(25, '+'));
+// console.log('Jamal'.padStart(25, '+'));
 
 const maskCreditCard = function (number) {
   const str = number + '';
@@ -639,20 +640,20 @@ const maskCreditCard = function (number) {
 };
 
 // work in this two
-console.log(maskCreditCard(90912801));
-console.log(maskCreditCard('90912801230901'));
+// console.log(maskCreditCard(90912801));
+// console.log(maskCreditCard('90912801230901'));
 
 // Repeat
 // akan me-repeat string
 const message2 = 'Bad weather, all departures delayed... \n';
 // pesan di variable message2 akan di-repeat sebanyak 2 kali
-console.log(message2.repeat(2));
+// console.log(message2.repeat(2));
 const planesInLine = function (numberOfPlane) {
   // akan menampilkan pesan dengan numberOfPlane sesuai dengan param
   // dan emoticon pesawat akan di-repeat sebanyak numberOfPlane
-  console.log(
-    `There are ${numberOfPlane} planes in line ${'✈'.repeat(numberOfPlane)}`
-  );
+  // console.log(
+  //   `There are ${numberOfPlane} planes in line ${'✈'.repeat(numberOfPlane)}`
+  // );
 };
 
 planesInLine(4);
@@ -847,18 +848,37 @@ HINT 4: This challenge is difficult on purpose, so start watching the solution i
 
 Afterward, test with your own test data!
  */
-const text = [
-  'underscore_case',
-  'first_name',
-  'Some_Variable',
-  'calculate_AGE',
-  'delayed_departure',
-];
-for (const s of text) {
-  // ubah dulu string menjadi lowercase
-  const textLower = s.toLowerCase();
-  // replace under score _
-  const replaceUnderScore = textLower.replace('_', '');
-  console.log(replaceUnderScore);
-}
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+document.querySelector('button').addEventListener('click', function () {
+  const text = document.querySelector('textarea').value.toLowerCase();
+  const rows = text.split(`\n`);
+  // console.log(row);
+  let idx = 1;
+  // for (const row of rows) {
+  //   // let idx = 1;
+  //   const [first, second] = row.toLowerCase().trim().split('_');
+
+  //   const output = `${first}${second.replace(
+  //     second[0],
+  //     second[0].toUpperCase()
+  //   )}`;
+  //   const pad = output.padEnd(20, '*');
+  //   console.log(`${output.padEnd(20)} ${'✅'.repeat(idx)} `);
+  //   idx++;
+  // }
+
+  // dengan entries - destructuring
+  for (const [i, row] of rows.entries()) {
+    const [first, second] = row.toLowerCase().trim().split('_');
+
+    const output = `${first}${second.replace(
+      second[0],
+      second[0].toUpperCase()
+    )}`;
+    console.log(`${output.padEnd(20)} ${'✅'.repeat(i + 1)} `);
+  }
+});
+
 // lanjutkan ygy :D
