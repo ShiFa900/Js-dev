@@ -140,21 +140,21 @@ const swiss = {
   bookings: [],
 };
 const flightData = [538, 'Gringer Weld'];
-book.apply(swiss, flightData);
+// book.apply(swiss, flightData);
 
 // bind method
 const bookEw = book.bind(eurowings);
-bookEw(23, 'Jane Williams'); // being as simply flightNum and passenger name
+// bookEw(23, 'Jane Williams'); // being as simply flightNum and passenger name
 
 const bookEW23 = book.bind(eurowings, 23);
-bookEW23('Jamal');
+// bookEW23('Jamal');
 
 // with even listener
 lufthtansa.planes = 30;
 lufthtansa.buyPlane = function () {
   console.log(this);
   this.planes++;
-  console.log(this.planes);
+  // console.log(this.planes);
 };
 
 document
@@ -217,23 +217,113 @@ GOOD LUCK 😀
 const poll = {
   question: 'What is your favorite programming languange?',
   option: ['0: Python', '1: JavaScript', '2: Rush', '3: C++'],
-  answer: new Array(4).fill(0),
+  answers: new Array(4).fill(0),
   registerNewAnswer() {
     const getInput = Number(
       prompt(
         `${this.question}\n${this.option.join('\n')}\n(Write option number)`
       )
     );
-    console.log(getInput);
+    // console.log(getInput);
 
-    if (typeof getInput === Number && getInput > this.option.length) {
-      this.getInput[getInput]++;
-    }
-    console.log(getInput);
+    // if (typeof getInput === Number && getInput > this.option.length) {
+    //   this.getInput[getInput]++;
+    // }
+    typeof getInput === 'number' &&
+      getInput < this.answers.length &&
+      this.answers[getInput]++;
+
+    // this.displayResults();
+    // this.displayResults('string');
   },
+
+  // displayResults(type = 'array') {
+  //   if (type === 'array') {
+  //     console.log(this.answers);
+  //   } else if (type === 'string') {
+  //     console.log(`Poll result are ${this.answers.join(', ')}`);
+  //   }
+  // },
 };
 
-// document
-//   .querySelector('.poll')
-//   .addEventListener('click', poll.registerNewAnswer());
-poll.registerNewAnswer();
+document
+  .querySelector('.poll')
+  .addEventListener('click', poll.registerNewAnswer.bind(poll));
+// poll.registerNewAnswer();
+// poll.displayResults.call({ answers: [5, 3, 2] }, 'string');
+// poll.displayResults.call({ answers: [5, 3, 2] });
+
+// IIFE (immediately invoke function expression)
+// anonymous, function berada dalam tanda kurung, akan menjadi function ekspresion
+(function () {
+  console.log('ini adalah anonymous IIFE');
+})();
+
+// arrow function
+(() => console.log('ini adalah arrow IIFE'))();
+
+// CLOSURES
+const secureBooking = function () {
+  let passangerCount = 0;
+
+  return function () {
+    passangerCount++;
+    console.log(`${passangerCount} passenger`);
+  };
+};
+
+// berada pada global enviroment/global scope
+const booker = secureBooking();
+// variabel booker dapat mengakses fucntion secure booking karena di definisikan setelah function booker dibuat
+
+// closure example
+let f;
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+g();
+f();
+// variable a berada dalam 'tas' function f, dpt diakses pada proses eksekusi
+
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+
+// re-assign function f
+h();
+f();
+
+// example 2
+const boardPassenger = function (n, wait) {
+  const perGroup = n / 3;
+
+  //callback function
+  setTimeout(function () {
+    console.log(`We are now boarding all ${n} passenger`);
+    console.log(`There are 3 groups, each with ${perGroup} passengers.`);
+  }, wait * 1000); // akan dieksekusi setelah 3 detik
+  console.log(`Will start boarding in ${wait} second`);
+};
+
+// boardPassenger(180, 3);
+
+// CODING CHALLENGE 2
+let i = 0;
+(function () {
+  const el = document.querySelector('h1');
+  el.style.color = 'red';
+  const colors = ['red', 'blue', 'cyan', 'orange', 'green'];
+
+  document.querySelector('body').addEventListener('click', function () {
+    if (i >= colors.length) i = 0;
+    el.style.color = colors[i];
+    i++;
+  });
+})();

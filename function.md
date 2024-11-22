@@ -223,3 +223,43 @@ bookEW23('Jamal'); // hanya memerlukan param untuk `name`
 
 penggunaan `partial application`, dimana beberapa original parameter telah di applied terlebih dahulu.
 jika ingin melakukan preset pada argument, harus dilakukan pada param/argument pertama.
+
+8.`Immediately Invoke Function Expression (IIFE)`
+Immediately Invoke Function Expression atau IIFE adalah sebuah function yang dipanggail secara langsung, function dijalankan sesaat setelah function dibuat. Teknik ini akan berguna saat melakukan `async/await`.
+
+- anonymous IIFE
+
+```
+(function(){
+   console.log("Ini adalah anonimus IIFE");
+}())
+```
+
+function di wrap dalam parenthesis untuk menjadikannya function expression. gunakan "`()`" untuk me-run function dengan IIFE
+
+- arrow IIFE
+
+```
+(() =>
+console.log("ini adalah arrow IIFE"))()
+```
+
+9.`CLOSURES`
+Sebuah function akan memiliki akses ke variable environment dari konteks yang di eksekusi, bahkan setelah eksekusi konsteks hilang.
+Closures memiliki prioritas pada scope chain.
+
+melihat closures:
+
+```
+console.dir(nama variable)
+```
+
+- Closures definition in different way (?)
+
+  - closures adalah sebuah bagian dari variable pada execution context dimana function di buat, bahkan setelah execution telah berakhir.
+
+  - closures memberikan seluruh akses dari parent scope bahkan setelah parent function returned. Function berpacuan pada outer scope.
+
+  - closures memastikan sebuah function tidak kehilangan koneksi dari variables yang ada di tempat function itu dibuat.
+
+  - closures dianalogikan seperti tas yang 'dibawa' oleh function yang isinya adalah variable yang ada pada tempat si function dibuat.
