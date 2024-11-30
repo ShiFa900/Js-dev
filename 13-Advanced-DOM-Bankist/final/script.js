@@ -248,7 +248,6 @@ const slider = function () {
     } else {
       curSlide++;
     }
-
     goToSlide(curSlide);
     activateDot(curSlide);
   };

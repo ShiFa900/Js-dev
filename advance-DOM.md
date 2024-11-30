@@ -142,3 +142,91 @@
       ```
       logo.className = 'jamal';
       ```
+
+4. Type of events and event handler
+
+   1. mouseenter
+
+      addEventListener:
+      alert akan muncul saat ter-trigger dengan mouse yang masuk ke area H1.
+
+      ```
+      h1.addEventListener('mouseenter', function (e) {
+         alert('You are on h1 :D');
+      });
+      ```
+
+      removeEventListener:
+
+      ```
+      h1.removeEventListener('mouseenter', function () { });
+      ```
+
+      kolaborasi kedua event:
+
+      ```
+      const alertH1 = function (e) {
+      alert('addEventListener: Great! You are reading the heading :D');
+
+      // akan menghilangkan event listener setelah ditampilkan pertama kali
+      // alert tidak akan muncul kembali pada hover kedua kalinya
+
+      h1.removeEventListener('mouseenter', alertH1);
+      };
+      ```
+
+      remove event dengan waktu:
+
+      ```
+      setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
+      ```
+
+      sebuah event tidak akan aktif lagi (setelah sebelumnya sudah aktif) setelah 3 detik, atau tergantung dari waktu yang di set.
+
+      cara lama untuk handler sebuah event
+
+      ```
+      h1.onmouseenter = function (e) {
+          alert('mouseenter: Great! You are reading the heading :D');
+      };
+      ```
+
+5. Event propagation: Bubbling and Capturing
+
+   1. Capturing phase: ketika sebuah event di klik, event tersebut tidak langsung menuju target, melainkan pergi dari `document route ke target element`, dan akan melalui setiap parent element dari target elemnt.
+
+   2. Target phase: ketika click event mencapai target, maka dimulai lah target phase, di mana event akan di-handle oleh target.
+
+   3. Bubblig phase: setelah mencapai target, event akan kembali lagi ke document route, lalu sama dengan capturing phase, bubbling phase juga akan melalui setiap parent element.
+
+6. Traversing DOM
+
+7. Dever and async script loading
+
+   1. regular attribute
+
+      ```
+      <script src="script.js">
+      ```
+
+      `end of body`, script di eksekusi setelah HTML sepenuhnya parsed.
+
+      `modern browser:`
+
+   2. async attribute
+
+      ```
+      <script async src="script.js">
+      ```
+
+      `async in head`, script fetch secara asynchronously dan dieksekusi seketika, DOMContentLoaded tidak menunggu untuk eksekusi HTML selesai pada async script. Script tidak terjamin akan di eksekusi berurutan.
+      `USE FOR 3-rd party script, order doesn't matter`
+
+   3. defer attribute
+      ```
+      <script defer src="script.js">
+      ```
+      `defer in head`, script fetched secara asynchronously dan dieksekusi setelah HTML sepenuhnya parsed, DOMContentLoaded event fires setelah defer script dieksekusi, script dieksekusi berurutan.
+      `BEST SOLUTION! for order matters`
+
+   ketiga attribute di atas akan mempengaruhi javascript dalam mengambil data, yaitu men-download lalu di eksekusi.

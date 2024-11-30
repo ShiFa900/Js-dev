@@ -42,6 +42,6 @@ const dotIndicator = function (i) {
   dots[i].classList.add("dot-fill");
 };
 
-setInterval(function () {
-  next();
-}, 3000);
+// setInterval(function () {
+//   next();
+// }, 3000);
