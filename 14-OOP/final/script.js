@@ -153,7 +153,7 @@ class PersonCl {
   }
 
   // Set a property that already exists
-  set fullName(name) {
+     fullName(name) {
     if (name.includes(' ')) this._fullName = name;
     else alert(`${name} is not a full name!`);
   }
