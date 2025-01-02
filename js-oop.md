@@ -69,6 +69,7 @@
   ```
 
 - Encapsulation: menjaga sebuah properties dan method tetap privat di dalam sebuah class, yang artinya tidak akan bisa diakses dari luar class. Beberapa method bisa terekpos sebagai public function (API).
+
   ```
   User{
      user
@@ -76,7 +77,9 @@
      private email //tidak bisa diakses di luar class
   }
   ```
+
   bukan syntax bawaan JS, private keyword bukan syntax asli dari JS doesn't exist.
+
   ```
   {
      login(word){
@@ -84,8 +87,35 @@
      }
   }
   ```
+
   kode di atas mengakses properties dari `password` dari class User. Bisa diakses karena dalam satu class yang sama.
   Keuntungannya: mencegah terjadinya perubahan internal properties/state dari luar, melakukan perubahan pada internal code tanpa beresiko mengubah external code.
+
+  Pada tradisional OOP seperti pada Java dan C++, sebuah properties disebut dengan fields.
+
+  - public field
+
+    ```
+    class Account {
+      // ini adalah public field
+      locale = navigator.language;
+      _movement = [];
+
+         constructor(owner, currency, pin) {
+         this.owner = owner;
+         this.currency = currency;
+
+         this._pin = pin;
+
+         console.log(`Thanks for opening an account, ${owner}`);
+         }
+    }
+    ```
+
+  - private field
+  - public method
+  - private method
+
 - Inheritance: adalah pewarisan sifat dari sebuah class.
 
   ```
@@ -196,17 +226,37 @@
 
 - Prototype Chain: series of links between objects, linked through prototypes (sama seperti scope chain).
   Constructor function:
+
   ```
   Person()
   ```
+
   Prototype:
   ini adalah object itu sendiri, setiap object yang ada di JS memiliki prototype.
+
   ```
   Person.prototype
   ```
+
   Object:
+
   ```
   Jamal
   __proto__
-  Person.prototype
+  Person.Prototype
   ```
+
+  ```
+   obj.__proto__
+  ```
+
+  Getter function `obj.__proto__` digunakan untuk mengekspos nilai internal dari [Prototype] sebuah object.
+
+- Chaining methods on classes
+
+  ```
+  acc1.deposit(200).deposit(500).withdrawal(40).requestLoan(1000).withdrawal(300);
+  console.log(acc1.getMovements());
+  ```
+
+  setiap aksi yang di set pada class acc1, akan dilakukan dalam satu kali jalan.
