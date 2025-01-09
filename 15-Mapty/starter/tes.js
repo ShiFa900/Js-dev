@@ -18,19 +18,41 @@ class Workout {
   id = (Date.now() + '').slice(-10);
 
   constructor(coords, duration, distance) {
-    this.coords = coords;
+    this.coords = coords; // [lat, lng]
     this.duration = duration; // in km
     this.distance = distance; // in min
   }
 }
 
 class Running extends Workout {
-  constructor(coords, duration, distance, cadence) {}
+  constructor(coords, duration, distance, cadence) {
+    super(coords, distance, duration);
+    this.cadence = cadence;
+    this.caclPace();
+  }
+
+  caclPace() {
+    // min/km
+    this.pace = this.duration / this.distance;
+    return this.pace;
+  }
 }
-class cycling extends Workout {
-  constructor(coords, duration, distance, elevation) {}
+class Cycling extends Workout {
+  constructor(coords, duration, distance, elevation) {
+    super(coords, distance, duration);
+    this.elevation = elevation;
+    this.caclSpeed();
+  }
+
+  caclSpeed() {
+    // km/h
+    this.speed = this.distance / (this.duration / 60);
+    return this.speed;
+  }
 }
 
+////////////////////
+// APP ARCHITECTURE
 class App {
   #map;
   #mapEvent;
