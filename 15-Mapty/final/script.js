@@ -135,8 +135,11 @@ class App {
 
   _hideForm() {
     // Empty inputs
-    inputDistance.value = inputDuration.value = inputCadence.value = inputElevation.value =
-      '';
+    inputDistance.value =
+      inputDuration.value =
+      inputCadence.value =
+      inputElevation.value =
+        '';
 
     form.style.display = 'none';
     form.classList.add('hidden');
@@ -194,6 +197,7 @@ class App {
 
     // Add new object to workout array
     this.#workouts.push(workout);
+    console.log(workout);
 
     // Render workout on map as marker
     this._renderWorkoutMarker(workout);
