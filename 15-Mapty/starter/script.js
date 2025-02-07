@@ -298,6 +298,7 @@ class App {
     workout.click();
   }
 
+  // save value to the local storage
   _setLocalStorage() {
     // local storage = key value store dalam string
     localStorage.setItem('workouts', JSON.stringify(this.#workouts));
