@@ -74,6 +74,7 @@ body {
 
 .country__data {
   padding: 2.5rem 3.75rem 3rem 3.75rem;
+  background-color: #f6f6f6;
 }
 
 .country__name {
