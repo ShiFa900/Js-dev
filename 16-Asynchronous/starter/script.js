@@ -102,10 +102,31 @@ const request = fetch('https://restCountries.com/v2/name/usa');
 //
 // };
 
+// const getCountryData = function (country) {
+//     fetch(`https://restCountries.com/v2/name/${country}`)
+//         .then((response) => response.json())
+//         .then((data) => renderCountry(data[0]))
+//
+// };
+
 const getCountryData = function (country) {
+    // country 1
     fetch(`https://restCountries.com/v2/name/${country}`)
         .then((response) => response.json())
-        .then((data) => renderCountry(data[0]))
+        .then(data => { // promise yang akan menampilkan 23
+            renderCountry(data[0])
+            const neighbour = data[0].borders[0]
+
+            if(!neighbour) return
+
+            // country 2
+           return fetch(`https://restCountries.com/v2/alpha/${neighbour}`)
+            // return 23;
+        })
+        .then(response => response.json())
+        .then(data => renderCountry(data, "neighbour"))
+        // handle with this method, will show alert with value of data
+        // .then(data => alert(data))
 
 };
 getCountryData("usa");
