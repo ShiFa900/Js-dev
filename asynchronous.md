@@ -23,10 +23,12 @@
 
 ```
 NOTE:
-HTTP: Hypertext Transfer Protocol.
-GET: get input data
-POST: sending data
-PUT and PATCH: updating/modifying data   
+- HTTP: Hypertext Transfer Protocol.
+- GET: get input data
+- POST: sending data
+- PUT and PATCH: updating/modifying data   
+
+- JS hanya bisa melakukan eksekusi dalam sekali show (only one thread of excecution). 
 ```
 
 5. Callback hell: callback hell adalah suatu kondisi dimana, terjadi pemanggillan sebuah callback dalam nested. Hal ini
@@ -35,4 +37,7 @@ PUT and PATCH: updating/modifying data
 
 6. Promise: promise adalah sebuah object yang digunakan sebagai placeholder/container dari hasil operasi asynchronous
   for the future result. 
+
+### Asynchronous behind the scene: the event loop
+
 
