@@ -36,7 +36,10 @@ NOTE:
    terlihat tidak estetik.
 
 6. Promise: promise adalah sebuah object yang digunakan sebagai placeholder/container dari hasil operasi asynchronous
-  for the future result. 
+   for the future result.
+
+7. Async/await: await akan mengehentikan eksekusi dari sebuah function sebelum akhirnya promise fullfilled. Namun,
+   async/await tidak akan mem-blok berjalannya sebuah kode, karena function akan berjalan secara asynchronously.
 
 ### Asynchronous behind the scene: the event loop
 

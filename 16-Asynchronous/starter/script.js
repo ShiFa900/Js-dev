@@ -14,16 +14,16 @@ const renderCountry = function (data, className = "") {
             <p class="country__row"><span>🗣️</span>${data.languages[0].name}</p>
             <p class="country__row"><span>💰</span>${data.currencies[0].name}</p>
           </div>
-        </article>`
+        </article>`;
 
     countriesContainer.insertAdjacentHTML('afterbegin', html);
-    countriesContainer.style.opacity = 1
-}
+    countriesContainer.style.opacity = 1;
+};
 
 const renderError = function (msg) {
     countriesContainer.insertAdjacentText('beforeend', msg);
     countriesContainer.style.opacity = 1;
-}
+};
 
 ///////////////////////////////////////
 // const getCountryData = function(country) {
@@ -144,8 +144,8 @@ const getJson = function (url, errMsg = "Something went wrong.") {
     return fetch(url).then(response => {
         if (!response.ok) throw new Error(`${errMsg} (${response.status})`);
         return response.json();
-    })
-}
+    });
+};
 
 // handle errors:
 // const getCountryData = function (country) {
@@ -221,16 +221,16 @@ const getCountryData = function (country) {
         // only work in promises, atau jika catch juga return promises
         .finally(() => {
             countriesContainer.style.opacity = 1;
-        })
+        });
 
     // handle with this method, will show alert with value of data
     // .then(data => alert(data))
 
 };
 
-btn.addEventListener('click', function () {
-    getCountryData("vietnam");
-});
+// btn.addEventListener('click', function () {
+//     getCountryData("vietnam");
+// });
 // getCountryData("indonesia");
 
 // CODING CHALLENGE
@@ -303,19 +303,170 @@ btn.addEventListener('click', function () {
 // console.log('Test end')
 
 // simple promise
-const lotteryPromise = new Promise(function (resolve, reject) {
-    console.log('lottery draw is happening 🔮')
-    setTimeout(function () {
-        if (Math.random() >= 0.5) {
-            resolve('You win 💰')
-        } else {
-            // dengan menambahkan new Error, akan menampilkan tampilan error pada console dan akan menampilkan pada bagian mana yang error
-            reject(new Error('You lose 💩'))
-        }
-    }, 2000)
+// const lotteryPromise = new Promise(function (resolve, reject) {
+//     console.log('lottery draw is happening 🔮');
+//     setTimeout(function () {
+//         if (Math.random() >= 0.5) {
+//             resolve('You win 💰');
+//         } else {
+//             // dengan menambahkan new Error, akan menampilkan tampilan error pada console dan akan menampilkan pada bagian mana yang error
+//             reject(new Error('You lose 💩'));
+//         }
+//     }, 2000);
+//
+// });
 
-});
-
-lotteryPromise.then(res => console.log(res)).catch(err => console.error(err));
+// lotteryPromise.then(res => console.log(res)).catch(err => console.error(err));
 
 // promisifying means to convert callback based asynchronous behavior to promise based
+const wait = function (seconds) {
+    return new Promise(function (resolve) {
+        setTimeout(resolve, seconds * 1000);
+    });
+};
+
+// callback function with asynchronous
+// wait(2)
+//     .then(() => {
+//         console.log('1 second passed.');
+//         // chain sequential AJAX calls with fetch function
+//         // first fetch, will create new fetch then return
+//         return wait(1);
+//
+//         // then handle that for one more
+//     }).then(() => {
+//     console.log('2 second passed.');
+//     return wait(1);
+// })
+//     .then(() => {
+//         console.log('3 second passed.');
+//         return wait(1);
+//
+//     })
+//     .then(() => {
+//         console.log('4 second passed.');
+//         return wait(1);
+//
+//     })
+
+// callback hell
+// setTimeout(() => {
+//     console.log('1 second passed.');
+//     setTimeout(() => {
+//         console.log('2 second passed.');
+//         setTimeout(() => {
+//             console.log('3 second passed.');
+//
+//             setTimeout(() => {
+//                 console.log('4 second passed.');
+//             }, 1000);
+//         }, 1000);
+//     }, 1000);
+// }, 1000);
+
+// simple promises
+// Promise.resolve('abc').then(x => console.log(x)); // akan tampil pada console
+// Promise.reject(new Error('Problem!')).catch(x => console.error(x)) // akan menampilkan error pada console
+
+// Promisifying Geo API
+// const getPosition = function (position) {
+//     return new Promise(function (resolve, reject) {
+//         // navigator.geolocation.getCurrentPosition(
+//         //     // position => console.log(position),
+//         //     position => resolve(position), // resolve the current position when no error
+//         //     // err => console.log(err)
+//         //     err => reject(err) // reject the error
+//         // );
+//
+//         // secara otomatis resolve dan reject position
+//         navigator.geolocation.getCurrentPosition(resolve, reject);
+//     });
+// };
+
+// getPosition().then(pos => console.log(pos));
+
+// new way to get the position
+// const whereAmI = function () {
+//     getPosition().then(pos => {
+//         const {latitude: lat, longitude: lng} = pos.coords;
+//
+//         // return new chain promises
+//         return fetch(` https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}`);
+//     })
+//         .then(res => {
+//             if (!res.ok) throw new Error(`Problem with geocoding, ${res.status}`);
+//             console.log(res);
+//             return res.json();
+//         })
+//
+//         .then(data => {
+//             console.log(data);
+//             console.log(`You are in ${data.city}, ${data.countryName}`);
+//
+//             return fetch(`https://restCountries.com/v2/name/${data.countryName}`);
+//         })
+//         .then(res => {
+//             if (!res.ok) throw new Error(`Country not found, ${res.status}`);
+//
+//             return res.json();
+//         })
+//         .then(data => renderCountry(data[0]))
+//
+//         .catch(err => console.error(`${err.status}`));
+// };
+// btn.addEventListener('click', whereAmI);
+
+// CODING CHALLENGE 2
+
+////////////////////////
+// ASYNC/AWAIT
+// setelah ditambahkan kata 'async' di depan function, maka sebuah function akan menjadi asynchronous function, yang artiny
+// dapat berjalan di balik layar selagi run code
+
+const getPosition = function (position) {
+    return new Promise(function (resolve, reject) {
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+    });
+};
+
+const whereAmI = async function (country) {
+    try {
+        // geolocation
+        const pos = await getPosition();
+        const {latitude: lat, longitude: lng} = pos.coords;
+
+        // reverse geocoding
+        const resGeo = await fetch(` https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}`);
+        if (!resGeo.ok) throw new Error(`Problem getting location data`);
+
+        const dataGeo = await resGeo.json();
+        console.log(dataGeo);
+
+        // country data
+        // await keyword digunakan untuk await result dari sebuah promise
+        // tidak menggunakan chaining promise
+        const res = await fetch(`https://restCountries.com/v2/name/${dataGeo.countryName}`);
+        if (!res.ok) throw new Error(`Problem getting country`);
+
+        const data = await res.json();
+        console.log(data);
+        renderCountry(data[0]);
+
+        // akan menjadi fulfilled value dari promise yang di return oleh function
+        return `You are in ${dataGeo.city}, ${dataGeo.country}`;
+    } catch (err) {
+        console.error(`${err} 💥`);
+        renderError(`💥 ${err.message}`);
+    }
+};
+// whereAmI();
+// whereAmI();
+// whereAmI();
+console.log('1: will get location');
+// javascript tidak akan tahu apa yang akan di retun dari function ini, maka itu yang di return adalah promise, saat di console akan menampilkan <pending>
+// const city = whereAmI();
+// console.log(city);
+whereAmI().then(city => console.log(city));
+console.log('3: finishing getting location');
+
+// error handling with async/await
