@@ -453,20 +453,61 @@ const whereAmI = async function (country) {
         renderCountry(data[0]);
 
         // akan menjadi fulfilled value dari promise yang di return oleh function
-        return `You are in ${dataGeo.city}, ${dataGeo.country}`;
+        return `You are in ${dataGeo.city}, ${dataGeo.countryName}`;
     } catch (err) {
         console.error(`${err} 💥`);
         renderError(`💥 ${err.message}`);
+
+        // reject promise returned from async function
+        throw err;
     }
 };
 // whereAmI();
 // whereAmI();
-// whereAmI();
-console.log('1: will get location');
+// console.log('1: will get location');
 // javascript tidak akan tahu apa yang akan di retun dari function ini, maka itu yang di return adalah promise, saat di console akan menampilkan <pending>
 // const city = whereAmI();
 // console.log(city);
-whereAmI().then(city => console.log(city));
-console.log('3: finishing getting location');
+// jika function whereAmI terdapat error, console.log tetap tampil yang artinya jika ada error pada async function, functionnya tetap akan fulfilled
+// dan tidak akan rejected
+// whereAmI()
+//     // mendapatkan error dari callback function, karena itu akan mendapatkan dua undefined, bukan catch(?)
+//     // artinya, jika pada async function terdapat error, maka promise return value is still fulfilled
+//     .then(city => console.log(`2: ${city}`))
+//
+//     // cara menangkap error pada async function dengan catch
+//     .catch(err => console.error(`2: ${err.message} 💥`))
+//     // ini akan selalu dieksekusi, jadi berurutan ni dia
+//     .finally(() => console.log('3: finishing getting location'));
 
 // error handling with async/await
+
+//IIFE: menggunakan IIFE untuk mengubah function di atas
+// last remaining cases for IIFE
+// async function calling other async function
+// (async function () {
+//     try {
+//         const city = await whereAmI();
+//         console.log(`2: ${city}`);
+//     } catch (err) {
+//         console.error(`2: ${err.message} 💥`);
+//     }
+//     console.log('3: finishing getting location');
+// })();
+
+// get 3 countries data with orders does not matter.
+const get3Countries = async function (c1, c2, c3) {
+    try {
+        // const [data1] = await getJson(`https://restCountries.com/v2/name/${c1}`);
+        // const [data2] = await getJson(`https://restCountries.com/v2/name/${c2}`);
+        // const [data3] = await getJson(`https://restCountries.com/v2/name/${c3}`);
+
+        console.log([data1.capital, data2.capital, data3.capital]);
+    } catch (err) {
+        console.error(`${err} 💩`);
+    }
+};
+
+get3Countries('portugal', 'indonesia', 'vietnam');
+
+// running promises in parallel
