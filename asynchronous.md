@@ -37,10 +37,16 @@ NOTE:
 
 6. Promise: promise adalah sebuah object yang digunakan sebagai placeholder/container dari hasil operasi asynchronous
    for the future result.
+    1. Promise Combinator:
+        - Promise.race: menerima masukan array of promises dan juga me-return promise. Menampilkan satu data yang lebih
+          dahulu diproses.
+        - Promise.allSettled: akan me-return semua promises, tidak peduli jika promises rejected atau tidak. Mirip
+          dengan promise.all, tanpa short circuit seperti pada promise.all.
+        - Promise.any: hanya akan me-return data yang fulfilled.
 
 7. Async/await: await akan mengehentikan eksekusi dari sebuah function sebelum akhirnya promise fullfilled. Namun,
    async/await tidak akan mem-blok berjalannya sebuah kode, karena function akan berjalan secara asynchronously.
 
-### Asynchronous behind the scene: the event loop
+
 
 
