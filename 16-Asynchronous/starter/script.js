@@ -609,25 +609,25 @@ const timeout = function (sec) {
     });
 };
 
-Promise.race([
-    getJson(`https://restCountries.com/v2/name/korea`), timeout(5)
-])
-    .then(res => console.log(res[0]))
-    .catch(err => console.log(err));
+// Promise.race([
+//     getJson(`https://restCountries.com/v2/name/korea`), timeout(5)
+// ])
+//     .then(res => console.log(res[0]))
+//     .catch(err => console.log(err));
 
 // Promise.allSettled: akan selalu menampilkan promises walaupun rejected
-Promise.all([
-    Promise.resolve("Success"),
-    Promise.reject("Fail"),
-    Promise.resolve("Another success"),
-]).then(res => console.log(res));
+// Promise.all([
+//     Promise.resolve("Success"),
+//     Promise.reject("Fail"),
+//     Promise.resolve("Another success"),
+// ]).then(res => console.log(res));
 
 // Promise.any: hasil dari promise.any adalah semua data yang fulfilled
-Promise.any([
-    Promise.resolve("Success"),
-    Promise.reject("Fail"),
-    Promise.resolve("Another success"),
-]).then(res => console.log(res));
+// Promise.any([
+//     Promise.resolve("Success"),
+//     Promise.reject("Fail"),
+//     Promise.resolve("Another success"),
+// ]).then(res => console.log(res));
 
 // challenge #3
 
@@ -648,33 +648,60 @@ TEST DATA: ['img/img-1.jpg', 'img/img-2.jpg', 'img/img-3.jpg']. To test, turn of
 
 GOOD LUCK 😀
 */
-createImage('img/img-1.jpg')
-    .then(img => {
-        currentImg = img;
-        console.log(" Image 1 is loaded");
-        return wait(2);
-    })
-    .then(() => {
-        currentImg.style.display = 'none';
-        return createImage('img/img-2.jpg');
-    })
-    .then(img => {
-        currentImg = img;
-        console.log(" Image 2 is loaded");
-        return wait(2);
-    })
-    .then(() => {
-        currentImg.style.display = 'none';
-    })
-    .catch(err => console.log(err));
+// createImage('img/img-1.jpg')
+//     .then(img => {
+//         currentImg = img;
+//         console.log(" Image 1 is loaded");
+//         return wait(2);
+//     })
+//     .then(() => {
+//         currentImg.style.display = 'none';
+//         return createImage('img/img-2.jpg');
+//     })
+//     .then(img => {
+//         currentImg = img;
+//         console.log(" Image 2 is loaded");
+//         return wait(2);
+//     })
+//     .then(() => {
+//         currentImg.style.display = 'none';
+//     })
+//     .catch(err => console.log(err));
 
-const loadNPause = async function () {
-    try{
-        await createImage('img/img-1.jpg')
-    } catch (err){
-        console.log(err)
+// new version of image loader on challenge 2
+// PART 1
+// const loadNPause = async function () {
+//     try {
+//         // load image 1
+//         let img = await createImage('img/img-1.jpg');
+//         console.log(" Image 1 is loaded");
+//         await wait(2);
+//         img.style.display = 'none';
+//
+//         // load image 2
+//         img = await createImage('img/img-2.jpg');
+//         console.log(" Image 2 is loaded");
+//         await wait(2);
+//         img.style.display = 'none';
+//
+//     } catch (err) {
+//         console.error(err);
+//     }
+// };
+
+// PART 2
+const loadAll = async function (imgArr) {
+    try {
+        const imgs = imgArr.map(async img => await createImage(img));
+        console.log(imgs);
+
+        const imgsEl = await Promise.all(imgs)
+        console.log(imgsEl);
+    } catch (err) {
+        console.error(err);
     }
-}
+};
+loadAll(['img/img-1.jpg', 'img/img-2.jpg', 'img/img-3.jpg'])
 
 // const imgContainer = document.querySelector('.images');
 //

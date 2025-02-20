@@ -8,7 +8,7 @@
 2. Asynchronous
    `asynchronous` adalah sebuah konsep di JS yang membuat sebuah code di eksekusi pada background tanpa mem-blok
    eksekusi code yang lain, salah satu contohnya adalah `setTimeout()` function.
-
+   Asynchronous code is non-blocking. 
    ```
    NOTE: 'addEventListener' tidak secara otomatis membuat sebuah code menjadi asynchronous.
    ```
